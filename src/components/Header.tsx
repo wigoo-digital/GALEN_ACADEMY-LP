@@ -6,8 +6,8 @@ import { Magnifying } from '../icons/magnifying';
 
 export const Header = () => {
   return (
-    <div className="flex w-full items-center justify-center">
-      <div className="max-w-8xl flex h-[104px] w-full flex-shrink-0 items-center justify-between py-[32px]">
+    <div className="flex w-full items-center justify-center" data-aos="fade-in">
+      <div className="flex h-[104px] w-full max-w-8xl flex-shrink-0 items-center justify-between py-[32px]">
         <StaticImage src="../images/logo.svg" alt="logo" />
 
         <div className="flex items-center justify-end gap-[16px]">
@@ -23,7 +23,7 @@ export const Header = () => {
             <Magnifying height={50} width={50} />
           </div>
           <div className="flex items-center justify-end gap-[8px] rounded-[76px] bg-[#FEDAC2] p-[12px] transition-all duration-300 ease-in-out hover:scale-105 hover:bg-[#FEDAC2]">
-            <span className="text-primary_black text-[12px] font-medium uppercase">
+            <span className="text-[12px] font-medium uppercase text-primary_black">
               Quem Somos
             </span>
           </div>

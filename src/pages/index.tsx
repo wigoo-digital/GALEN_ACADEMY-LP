@@ -119,7 +119,10 @@ const IndexPage: React.FC<PageProps> = () => {
     <main className="">
       <div className="flex-shrink-0 bg-primary_black bg-[url('../images/hero.svg')] bg-cover bg-center">
         <Header />
-        <div className="animatecss animatecss-fadeIn flex w-full items-center justify-center ">
+        <div
+          className=" flex w-full items-center justify-center"
+          data-aos="fade-in"
+        >
           <div className="mt-11 flex w-full max-w-8xl flex-col gap-[54px]">
             <h1 className="max-w-[762px] font-title text-[72px] font-semibold leading-[90px] text-white">
               Facilitamos a Jornada do conhecimento.
@@ -133,7 +136,7 @@ const IndexPage: React.FC<PageProps> = () => {
             </p>
           </div>
         </div>
-        <div className="animatecss animatecss-fadeIn mt-[3.38rem]">
+        <div className=" mt-[3.38rem]" data-aos="fade-in">
           <Swiper
             {...configSwiper}
             modules={[Autoplay]}
@@ -154,7 +157,10 @@ const IndexPage: React.FC<PageProps> = () => {
       </div>
 
       {/* Sobre nós */}
-      <div className="mb-[8rem] mt-[8rem] flex flex-col items-center justify-center">
+      <div
+        className="mb-[8rem] mt-[8rem] flex flex-col items-center justify-center"
+        data-aos="zoom-in"
+      >
         <div className="flex  flex-col gap-6">
           <span className="font-display  text-lg font-medium text-indigo-600">
             SOBRE NÓS
@@ -172,8 +178,11 @@ const IndexPage: React.FC<PageProps> = () => {
       </div>
 
       {/* Pós Graduação */}
-      <div className="flex justify-center">
-        <div className="max-w-[70.25rem] bg-[#F7F7F8] bg-[url('../images/shape1.svg')] bg-left bg-no-repeat px-[5.88rem] pb-[5.88rem] pt-[7rem]">
+      <div className="flex justify-center" data-aos="zoom-in">
+        <div
+          className="max-w-[70.25rem] bg-[#F7F7F8] bg-[url('../images/shape1.svg')] bg-left bg-no-repeat px-[5.88rem] pb-[5.88rem] pt-[7rem]"
+          data-aos="zoom-in"
+        >
           <div className="flex items-center justify-center">
             <div className="flex w-full max-w-[46rem] flex-col items-center justify-center gap-7">
               <div className="flex gap-2">
@@ -289,7 +298,7 @@ const IndexPage: React.FC<PageProps> = () => {
       </div>
 
       {/* Coordenadores */}
-      <div className="flex justify-center">
+      <div className="flex justify-center" data-aos="zoom-in">
         <div className="mt-32 w-full max-w-[70.25rem]">
           <h1 className="w-full text-center font-title text-3xl font-semibold leading-9 text-slate-950">
             Nossos Coordenadores
@@ -307,7 +316,7 @@ const IndexPage: React.FC<PageProps> = () => {
       </div>
 
       {/* Beneficios */}
-      <div className="mt-32">
+      <div className="mt-32" data-aos="zoom-in">
         <div className="mx-auto flex  items-center justify-center bg-[#F7F7F8] bg-[url('../images/shape2.svg')] bg-left-bottom bg-no-repeat px-[9.75rem] py-[4.5rem]">
           <div className="flex max-w-[70.5rem]">
             <span className="max-w-[22.5rem] font-title text-4xl font-medium leading-10 text-slate-950">
@@ -338,7 +347,7 @@ const IndexPage: React.FC<PageProps> = () => {
 
       {/* Curso de curta duração */}
 
-      <div className="mt-[6.5rem]">
+      <div className="mt-[6.5rem]" data-aos="zoom-in">
         <div className="flex flex-col items-center justify-start gap-8">
           <div className="flex flex-col items-start justify-start gap-2">
             <div className="self-stretch text-center font-display text-lg font-medium text-indigo-600">
@@ -380,7 +389,7 @@ const IndexPage: React.FC<PageProps> = () => {
 
       {/*  */}
 
-      <div className="mt-20">
+      <div className="mt-20" data-aos="zoom-in">
         <div className="flex flex-col items-center justify-start gap-12  bg-neutral-100 bg-[url('../images/shape3.svg')] bg-cover bg-no-repeat py-32">
           <div className="flex flex-col items-center justify-start gap-4">
             <div className="w-96 text-center font-title text-6xl font-medium leading-[4rem] text-indigo-600">
@@ -397,7 +406,7 @@ const IndexPage: React.FC<PageProps> = () => {
 
       {/* Footer  */}
 
-      <div className="mt-[9rem]">
+      <div className="mt-[9rem]" data-aos="zoom-in">
         <Footer />
       </div>
     </main>
