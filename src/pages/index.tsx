@@ -391,8 +391,8 @@ const IndexPage: React.FC<PageProps> = () => {
             className="flex flex-col items-center justify-start gap-12 "
           >
             <div className="flex flex-col items-center justify-start gap-4">
-              <div className="w-96 text-center font-title text-6xl font-medium leading-[4rem] text-indigo-600">
-                Amplie Seus Horizontes na Saúde
+              <div className="max-w-[66.5rem] text-center font-title text-6xl font-medium leading-[4rem] text-indigo-600">
+                Potencialize seus conhecimentos e impulsione sua carreira.
               </div>
             </div>
             <div className="flex items-center justify-end gap-[8px] rounded-[76px] bg-[#FEDAC2] px-10 py-8 transition-all duration-300 ease-in-out hover:scale-105 hover:bg-[#FEDAC2]">
