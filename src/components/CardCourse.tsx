@@ -14,10 +14,10 @@ export const CardCourse = () => {
       </div>
 
       <div className="flex flex-col items-start gap-[8px] rounded-b-3xl bg-[#F7F7F8] p-[1.5rem] pt-6 ">
-        <span className="font-hoves text-[12px] text-neutral-500">
+        <span className="font-title text-[12px] text-neutral-500">
           Curta Duração
         </span>
-        <h1 className="font- text-primary_black text-md font-hoves text-[18px] font-medium">
+        <h1 className="font- text-md font-title text-[18px] font-medium text-primary_black">
           Relações entre o Direito, a Medicina e a Bioética
         </h1>
         <p className="line-clamp-3 font-['Space_Grotesk'] text-sm text-neutral-700">

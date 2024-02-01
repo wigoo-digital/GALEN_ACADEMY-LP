@@ -13,7 +13,7 @@ export const CardSpeciality = () => {
         <div className="absolute left-[50%] top-[0rem] flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 transform items-center justify-center rounded-full border-8 border-white bg-indigo-600">
           <IoIosArrowForward className="h-4 w-4 text-white" />
         </div>
-        <div className="font-hoves self-stretch text-center text-lg font-semibold leading-snug text-slate-950">
+        <div className="font-title self-stretch text-center text-lg font-semibold leading-snug text-slate-950">
           Pesquisa Clínica
         </div>
       </div>

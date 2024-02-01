@@ -9,6 +9,7 @@ import { StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { StartIcon } from 'src/icons/start';
+import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 const IndexPage: React.FC<PageProps> = () => {
@@ -119,10 +120,10 @@ const IndexPage: React.FC<PageProps> = () => {
         <Header />
         <div className="flex w-full items-center justify-center">
           <div className="mt-11 flex w-full max-w-8xl flex-col gap-[54px]">
-            <h1 className="max-w-[762px] font-['TT_Hoves'] text-[72px] font-semibold not-italic leading-[90px] text-white">
+            <h1 className="font-title max-w-[762px] text-[72px] font-semibold leading-[90px] text-white">
               Facilitamos a Jornada do conhecimento.
             </h1>
-            <p className=" w-[491px] font-['Space_Grotesk'] text-[14px] font-medium text-white opacity-90">
+            <p className=" w-[491px] font-display text-[14px] font-medium text-white opacity-90">
               Eleve sua prática clínica com nossos cursos em saúde,
               desenvolvidos pelo BCRI, um dos maiores institutos de Pesquisa
               Clínica da América Latina, em colaboração com docentes de
@@ -132,7 +133,16 @@ const IndexPage: React.FC<PageProps> = () => {
           </div>
         </div>
         <div className="mt-[3.38rem]">
-          <Swiper {...configSwiper}>
+          <Swiper
+            {...configSwiper}
+            modules={[Autoplay]}
+            loop={true}
+            autoplay={{
+              delay: 0,
+              disableOnInteraction: false,
+            }}
+            speed={3000}
+          >
             {Array.from({ length: 10 }).map((_, index) => (
               <SwiperSlide key={index}>
                 <CardCourse />
@@ -147,7 +157,7 @@ const IndexPage: React.FC<PageProps> = () => {
           <span className="font-display  text-lg font-medium text-indigo-600">
             SOBRE NÓS
           </span>
-          <h1 className="max-w-[30rem] font-hoves text-4xl font-medium leading-10 text-slate-950">
+          <h1 className="font-title max-w-[30rem] text-4xl font-medium leading-10 text-slate-950">
             Transformando a Saúde através da Educação, Uma Mente de Cada Vez
           </h1>
           <p className="max-w-[40rem] font-display text-base font-normal leading-relaxed text-zinc-700">
@@ -171,7 +181,7 @@ const IndexPage: React.FC<PageProps> = () => {
                 </span>
                 <StartIcon />
               </div>
-              <h1 className="leading-20 text-center font-hoves text-6xl font-medium text-slate-950">
+              <h1 className="leading-20 font-title text-center text-6xl font-medium text-slate-950">
                 Capacitação em Leitura Científica
               </h1>
               <p className="text-center font-display text-base font-normal leading-relaxed text-zinc-700">
@@ -234,7 +244,7 @@ const IndexPage: React.FC<PageProps> = () => {
 
           <div>
             <div className="mt-32 inline-flex h-16 w-full items-center justify-between">
-              <span className="max-w-[32rem] font-hoves text-3xl font-bold leading-9 text-slate-950">
+              <span className="font-title max-w-[32rem] text-3xl font-bold leading-9 text-slate-950">
                 Descubra nossos Cursos de Saúde e Pesquisa para Avançar na sua
                 Carreira
               </span>
@@ -279,7 +289,7 @@ const IndexPage: React.FC<PageProps> = () => {
       {/* Coordenadores */}
       <div className="flex justify-center">
         <div className="mt-32 w-full max-w-[70.25rem]">
-          <h1 className="w-full text-center font-hoves text-3xl font-semibold leading-9 text-slate-950">
+          <h1 className="font-title w-full text-center text-3xl font-semibold leading-9 text-slate-950">
             Nossos Coordenadores
           </h1>
           <div className="pt-12">
@@ -298,7 +308,7 @@ const IndexPage: React.FC<PageProps> = () => {
       <div className="mt-32">
         <div className="mx-auto flex  items-center justify-center bg-[#F7F7F8] bg-[url('../images/shape2.svg')] bg-left-bottom bg-no-repeat px-[9.75rem] py-[4.5rem]">
           <div className="flex max-w-[70.5rem]">
-            <span className="max-w-[22.5rem] font-hoves text-4xl font-medium leading-10 text-slate-950">
+            <span className="font-title max-w-[22.5rem] text-4xl font-medium leading-10 text-slate-950">
               Excelência e Inovação em Nossa Educação em Saúde
             </span>
             <div className="ml-[7.5rem] grid grid-cols-2 gap-x-28 gap-y-20">
@@ -311,7 +321,7 @@ const IndexPage: React.FC<PageProps> = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="text-center font-hoves text-xl font-semibold leading-7 text-slate-950">
+                  <div className="font-title text-center text-xl font-semibold leading-7 text-slate-950">
                     Certificados
                   </div>
                   <div className="line-clamp-3 max-w-[14rem] self-stretch font-display text-base font-normal leading-relaxed text-zinc-700">
@@ -332,7 +342,7 @@ const IndexPage: React.FC<PageProps> = () => {
             <div className="self-stretch text-center font-display text-lg font-medium text-indigo-600">
               Curso de curta duração
             </div>
-            <div className="w-96 text-center font-hoves text-4xl font-medium leading-10 text-slate-950">
+            <div className="font-title w-96 text-center text-4xl font-medium leading-10 text-slate-950">
               Pesquisa Clínica
             </div>
           </div>
@@ -346,18 +356,18 @@ const IndexPage: React.FC<PageProps> = () => {
             <div className="absolute left-0 top-0 h-full w-full rounded-lg bg-gradient-to-r from-indigo-600 to-black opacity-50 mix-blend-hard-light" />
 
             <div className="absolute left-[40px] top-[349px] flex flex-col items-start justify-start gap-4">
-              <div className="w-96 font-hoves text-2xl font-semibold text-white">
+              <div className="font-title w-96 text-2xl font-semibold text-white">
                 Capacitação em pesquisa clínica para Profissionais da saúde
               </div>
 
               <ul className="list-inside list-disc">
-                <li className="font-hoves text-base font-medium leading-normal text-white">
+                <li className="font-title text-base font-medium leading-normal text-white">
                   Aprofunde-se na criação e gestão de estudos científicos.
                 </li>
-                <li className="font-hoves text-base font-medium leading-normal text-white">
+                <li className="font-title text-base font-medium leading-normal text-white">
                   Interprete e aplique metodologias científicas com precisão.
                 </li>
-                <li className="font-hoves text-base font-medium leading-normal text-white">
+                <li className="font-title text-base font-medium leading-normal text-white">
                   Domine a estatística e aspectos cruciais da pesquisa clínica.
                 </li>
               </ul>
@@ -371,11 +381,11 @@ const IndexPage: React.FC<PageProps> = () => {
       <div className="mt-20">
         <div className="flex flex-col items-center justify-start gap-12  bg-neutral-100 bg-[url('../images/shape3.svg')] bg-cover bg-no-repeat py-32">
           <div className="flex flex-col items-center justify-start gap-4">
-            <div className="w-96 text-center font-hoves text-6xl font-medium leading-[4rem] text-indigo-600">
+            <div className="font-title w-96 text-center text-6xl font-medium leading-[4rem] text-indigo-600">
               Amplie Seus Horizontes na Saúde
             </div>
           </div>
-          <Button className="flex items-center justify-end gap-[8px] rounded-[76px] bg-[#FEDAC2] px-10 py-8 hover:bg-[#ceb09d]">
+          <Button className="flex items-center justify-end gap-[8px] rounded-[76px] bg-[#FEDAC2] px-10 py-8 transition-all duration-300 ease-in-out hover:scale-105 hover:bg-[#FEDAC2]">
             <span className="text-xl font-medium uppercase text-primary_black">
               Comece sua jornada
             </span>

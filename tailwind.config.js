@@ -19,8 +19,7 @@ module.exports = {
     extend: {
       fontFamily: {
         display: 'Space Grotesk',
-        hoves: 'TT Hoves Regular',
-        hoves_bold: 'TT Hoves Bold',
+        title: 'Roc Grotesk',
       },
       maxWidth: {
         '8xl': '1440px',

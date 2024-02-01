@@ -73,79 +73,53 @@
   body {
     @apply bg-background text-foreground;
   }
+}
 
-  @font-face {
-    font-family: 'SpaceGrotesk-Bold';
-    src: url('/fonts/SpaceGrotesk-Bold.ttf') format('ttf');
-  }
+@font-face {
+  font-family: 'Roc Grotesk';
+  font-style: normal;
+  font-weight: 100;
+  src: url('/fonts/RocGrotesk_Thin.otf') format('opentype');
+}
 
-  @font-face {
-    font-family: 'TT Hoves Black Italic';
-    src: url('/fonts/TT Hoves Black Italic.otf') format('otf');
-  }
+@font-face {
+  font-family: 'Roc Grotesk';
+  font-style: normal;
+  font-weight: 200;
+  src: url('/fonts/RocGrotesk_ExtraLight.otf') format('opentype');
+}
 
-  @font-face {
-    font-family: 'TT Hoves Black';
-    src: url('/fonts/TT Hoves Black.otf') format('otf');
-  }
+@font-face {
+  font-family: 'Roc Grotesk';
+  font-style: normal;
+  font-weight: 300;
+  src: url('/fonts/RocGrotesk_Light.otf') format('opentype');
+}
 
-  @font-face {
-    font-family: 'TT Hoves Bold Italic';
-    src: url('/fonts/TT Hoves Bold Italic.otf') format('otf');
-  }
+@font-face {
+  font-family: 'Roc Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/RocGrotesk_Regular.otf') format('opentype');
+}
 
-  @font-face {
-    font-family: 'TT Hoves Bold';
-    src: url('/fonts/TT Hoves Bold.otf') format('otf');
-  }
+@font-face {
+  font-family: 'Roc Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  src: url('/fonts/RocGrotesk_Medium.otf') format('opentype');
+}
 
-  @font-face {
-    font-family: 'TT Hoves Italic';
-    src: url('/fonts/TT Hoves Italic.otf') format('otf');
-  }
+@font-face {
+  font-family: 'Roc Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/RocGrotesk_Bold.otf') format('opentype');
+}
 
-  @font-face {
-    font-family: 'TT Hoves Light Italic';
-    src: url('/fonts/TT Hoves Light Italic.otf') format('otf');
-  }
-
-  @font-face {
-    font-family: 'TT Hoves Light';
-    src: url('/fonts/TT Hoves Light.otf') format('otf');
-  }
-
-  @font-face {
-    font-family: 'TT Hoves Regular';
-    src: url('/fonts/TT Hoves Regular.otf') format('otf');
-  }
-
-  @font-face {
-    font-family: 'TT Hoves Thin Italic';
-    src: url('/fonts/TT Hoves Thin Italic.otf') format('otf');
-  }
-
-  @font-face {
-    font-family: 'TT Hoves Thin';
-    src: url('/fonts/TT Hoves Thin.otf') format('otf');
-  }
-
-  @font-face {
-    font-family: 'TT Hoves';
-    src: url('/fonts/TT Hoves.otf') format('otf');
-  }
-
-  @font-face {
-    font-family: 'TT Hoves ExtraBold';
-    src: url('/fonts/TT Hoves ExtraBold.otf') format('otf');
-  }
-
-  @font-face {
-    font-family: 'TT Hoves ExtraBold Italic';
-    src: url('/fonts/TT Hoves ExtraBold Italic') format('otf');
-  }
-
-  @font-face {
-    font-family: 'TT Hoves ExtraLight';
-    src: url('/fonts/TT Hoves ExtraLight.otf') format('otf');
-  }
+@font-face {
+  font-family: 'Roc Grotesk';
+  font-style: normal;
+  font-weight: 800;
+  src: url('/fonts/RocGrotesk_ExtraBold.otf') format('opentype');
 }
