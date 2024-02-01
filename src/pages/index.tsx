@@ -12,8 +12,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { StartIcon } from '../icons/start';
 
 const IndexPage: React.FC<PageProps> = () => {
-  const aboutUsRef = React.useRef();
-
   const swiperRef = React.useRef<any>(null);
 
   const configSwiper = {
@@ -178,11 +176,8 @@ const IndexPage: React.FC<PageProps> = () => {
       </div>
 
       {/* Pós Graduação */}
-      <div className="flex justify-center" data-aos="zoom-in">
-        <div
-          className="max-w-[70.25rem] bg-[#F7F7F8] bg-[url('../images/shape1.svg')] bg-left bg-no-repeat px-[5.88rem] pb-[5.88rem] pt-[7rem]"
-          data-aos="zoom-in"
-        >
+      <div className="flex justify-center">
+        <div className="max-w-[70.25rem] bg-[#F7F7F8] bg-[url('../images/shape1.svg')] bg-left bg-no-repeat px-[5.88rem] pb-[5.88rem] pt-[7rem]">
           <div className="flex items-center justify-center">
             <div className="flex w-full max-w-[46rem] flex-col items-center justify-center gap-7">
               <div className="flex gap-2">
@@ -253,7 +248,7 @@ const IndexPage: React.FC<PageProps> = () => {
 
           {/* cursos */}
 
-          <div>
+          <div data-aos="zoom-in">
             <div className="mt-32 inline-flex h-16 w-full items-center justify-between">
               <span className="max-w-[32rem] font-title text-3xl font-bold leading-9 text-slate-950">
                 Descubra nossos Cursos de Saúde e Pesquisa para Avançar na sua
@@ -316,9 +311,9 @@ const IndexPage: React.FC<PageProps> = () => {
       </div>
 
       {/* Beneficios */}
-      <div className="mt-32" data-aos="zoom-in">
+      <div className="mt-32">
         <div className="mx-auto flex  items-center justify-center bg-[#F7F7F8] bg-[url('../images/shape2.svg')] bg-left-bottom bg-no-repeat px-[9.75rem] py-[4.5rem]">
-          <div className="flex max-w-[70.5rem]">
+          <div className="flex max-w-[70.5rem]" data-aos="zoom-in">
             <span className="max-w-[22.5rem] font-title text-4xl font-medium leading-10 text-slate-950">
               Excelência e Inovação em Nossa Educação em Saúde
             </span>
@@ -389,24 +384,29 @@ const IndexPage: React.FC<PageProps> = () => {
 
       {/*  */}
 
-      <div className="mt-20" data-aos="zoom-in">
-        <div className="flex flex-col items-center justify-start gap-12  bg-neutral-100 bg-[url('../images/shape3.svg')] bg-cover bg-no-repeat py-32">
-          <div className="flex flex-col items-center justify-start gap-4">
-            <div className="w-96 text-center font-title text-6xl font-medium leading-[4rem] text-indigo-600">
-              Amplie Seus Horizontes na Saúde
+      <div className="mt-20">
+        <div className="bg-neutral-100 bg-[url('../images/shape3.svg')] bg-cover bg-no-repeat py-32">
+          <div
+            data-aos="zoom-in"
+            className="flex flex-col items-center justify-start gap-12 "
+          >
+            <div className="flex flex-col items-center justify-start gap-4">
+              <div className="w-96 text-center font-title text-6xl font-medium leading-[4rem] text-indigo-600">
+                Amplie Seus Horizontes na Saúde
+              </div>
             </div>
-          </div>
-          <div className="flex items-center justify-end gap-[8px] rounded-[76px] bg-[#FEDAC2] px-10 py-8 transition-all duration-300 ease-in-out hover:scale-105 hover:bg-[#FEDAC2]">
-            <span className="text-xl font-medium uppercase text-primary_black">
-              Comece sua jornada
-            </span>
+            <div className="flex items-center justify-end gap-[8px] rounded-[76px] bg-[#FEDAC2] px-10 py-8 transition-all duration-300 ease-in-out hover:scale-105 hover:bg-[#FEDAC2]">
+              <span className="text-xl font-medium uppercase text-primary_black">
+                Comece sua jornada
+              </span>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Footer  */}
 
-      <div className="mt-[9rem]" data-aos="zoom-in">
+      <div className="mt-[9rem]">
         <Footer />
       </div>
     </main>
