@@ -3,14 +3,13 @@ import { CardCourse } from '@components/CardCourse';
 import { CardSpeciality } from '@components/CardSpeciality';
 import { Footer } from '@components/Footer';
 import { Header } from '@components/Header';
-import { Button } from '@components/ui/button';
 import type { HeadFC, PageProps } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
-import { StartIcon } from 'src/icons/start';
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { StartIcon } from '../icons/start';
 
 const IndexPage: React.FC<PageProps> = () => {
   const swiperRef = React.useRef<any>(null);
@@ -116,14 +115,14 @@ const IndexPage: React.FC<PageProps> = () => {
 
   return (
     <main className="">
-      <div className="flex-shrink-0 bg-primary_black bg-[url('../images/hero.svg')] bg-cover bg-center">
+      <div className="bg-primary_black flex-shrink-0 bg-[url('../images/hero.svg')] bg-cover bg-center">
         <Header />
         <div className="flex w-full items-center justify-center">
-          <div className="mt-11 flex w-full max-w-8xl flex-col gap-[54px]">
+          <div className="max-w-8xl mt-11 flex w-full flex-col gap-[54px]">
             <h1 className="font-title max-w-[762px] text-[72px] font-semibold leading-[90px] text-white">
               Facilitamos a Jornada do conhecimento.
             </h1>
-            <p className=" w-[491px] font-display text-[14px] font-medium text-white opacity-90">
+            <p className=" font-display w-[491px] text-[14px] font-medium text-white opacity-90">
               Eleve sua prática clínica com nossos cursos em saúde,
               desenvolvidos pelo BCRI, um dos maiores institutos de Pesquisa
               Clínica da América Latina, em colaboração com docentes de
@@ -160,7 +159,7 @@ const IndexPage: React.FC<PageProps> = () => {
           <h1 className="font-title max-w-[30rem] text-4xl font-medium leading-10 text-slate-950">
             Transformando a Saúde através da Educação, Uma Mente de Cada Vez
           </h1>
-          <p className="max-w-[40rem] font-display text-base font-normal leading-relaxed text-zinc-700">
+          <p className="font-display max-w-[40rem] text-base font-normal leading-relaxed text-zinc-700">
             Nossa equipe de especialistas traz décadas de experiência clínica e
             acadêmica. Fundamos a Galen Academy para resolver os desafios da
             educação em saúde que nós mesmos enfrentamos. Em verdade, é a
@@ -176,7 +175,7 @@ const IndexPage: React.FC<PageProps> = () => {
             <div className="flex w-full max-w-[46rem] flex-col items-center justify-center gap-7">
               <div className="flex gap-2">
                 <StartIcon />
-                <span className="text-center font-display text-lg font-medium text-indigo-600">
+                <span className="font-display text-center text-lg font-medium text-indigo-600">
                   PÓS-GRADUAÇÃO
                 </span>
                 <StartIcon />
@@ -184,7 +183,7 @@ const IndexPage: React.FC<PageProps> = () => {
               <h1 className="leading-20 font-title text-center text-6xl font-medium text-slate-950">
                 Capacitação em Leitura Científica
               </h1>
-              <p className="text-center font-display text-base font-normal leading-relaxed text-zinc-700">
+              <p className="font-display text-center text-base font-normal leading-relaxed text-zinc-700">
                 {' '}
                 O curso "Leitura Científica" é uma oportunidade imperdível para
                 os profissionais da saúde que desejam compreender e interpretar
@@ -232,11 +231,11 @@ const IndexPage: React.FC<PageProps> = () => {
                 </div>
               </div>
 
-              <Button className="mt-12 inline-flex h-14 w-96 items-center justify-center gap-2  rounded-full bg-indigo-600 px-6 py-4">
+              <div className="mt-12 inline-flex h-14 w-96 items-center justify-center gap-2  rounded-full bg-indigo-600 px-6 py-4">
                 <span className="font-display text-lg font-medium leading-relaxed text-white">
                   Saiba mais
                 </span>
-              </Button>
+              </div>
             </div>
           </div>
 
@@ -324,7 +323,7 @@ const IndexPage: React.FC<PageProps> = () => {
                   <div className="font-title text-center text-xl font-semibold leading-7 text-slate-950">
                     Certificados
                   </div>
-                  <div className="line-clamp-3 max-w-[14rem] self-stretch font-display text-base font-normal leading-relaxed text-zinc-700">
+                  <div className="font-display line-clamp-3 max-w-[14rem] self-stretch text-base font-normal leading-relaxed text-zinc-700">
                     Pós-graduações registradas no MEC (Ministério da Educação).
                   </div>
                 </div>
@@ -339,7 +338,7 @@ const IndexPage: React.FC<PageProps> = () => {
       <div className="mt-[6.5rem]">
         <div className="flex flex-col items-center justify-start gap-8">
           <div className="flex flex-col items-start justify-start gap-2">
-            <div className="self-stretch text-center font-display text-lg font-medium text-indigo-600">
+            <div className="font-display self-stretch text-center text-lg font-medium text-indigo-600">
               Curso de curta duração
             </div>
             <div className="font-title w-96 text-center text-4xl font-medium leading-10 text-slate-950">
@@ -385,11 +384,11 @@ const IndexPage: React.FC<PageProps> = () => {
               Amplie Seus Horizontes na Saúde
             </div>
           </div>
-          <Button className="flex items-center justify-end gap-[8px] rounded-[76px] bg-[#FEDAC2] px-10 py-8 transition-all duration-300 ease-in-out hover:scale-105 hover:bg-[#FEDAC2]">
-            <span className="text-xl font-medium uppercase text-primary_black">
+          <div className="flex items-center justify-end gap-[8px] rounded-[76px] bg-[#FEDAC2] px-10 py-8 transition-all duration-300 ease-in-out hover:scale-105 hover:bg-[#FEDAC2]">
+            <span className="text-primary_black text-xl font-medium uppercase">
               Comece sua jornada
             </span>
-          </Button>
+          </div>
         </div>
       </div>
 
