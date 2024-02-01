@@ -178,7 +178,7 @@ const IndexPage: React.FC<PageProps> = () => {
       {/* Pós Graduação */}
       <div className="flex justify-center">
         <div className="max-w-[70.25rem] bg-[#F7F7F8] bg-[url('../images/shape1.svg')] bg-left bg-no-repeat px-[5.88rem] pb-[5.88rem] pt-[7rem]">
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center" data-aos="zoom-in">
             <div className="flex w-full max-w-[46rem] flex-col items-center justify-center gap-7">
               <div className="flex gap-2">
                 <StartIcon />
