@@ -12,6 +12,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { StartIcon } from '../icons/start';
 
 const IndexPage: React.FC<PageProps> = () => {
+  const aboutUsRef = React.useRef();
+
   const swiperRef = React.useRef<any>(null);
 
   const configSwiper = {
@@ -115,14 +117,14 @@ const IndexPage: React.FC<PageProps> = () => {
 
   return (
     <main className="">
-      <div className="bg-primary_black flex-shrink-0 bg-[url('../images/hero.svg')] bg-cover bg-center">
+      <div className="flex-shrink-0 bg-primary_black bg-[url('../images/hero.svg')] bg-cover bg-center">
         <Header />
-        <div className="flex w-full items-center justify-center">
-          <div className="max-w-8xl mt-11 flex w-full flex-col gap-[54px]">
-            <h1 className="font-title max-w-[762px] text-[72px] font-semibold leading-[90px] text-white">
+        <div className="animatecss animatecss-fadeIn flex w-full items-center justify-center ">
+          <div className="mt-11 flex w-full max-w-8xl flex-col gap-[54px]">
+            <h1 className="max-w-[762px] font-title text-[72px] font-semibold leading-[90px] text-white">
               Facilitamos a Jornada do conhecimento.
             </h1>
-            <p className=" font-display w-[491px] text-[14px] font-medium text-white opacity-90">
+            <p className="w-[491px] font-display text-[14px] font-medium text-white opacity-90">
               Eleve sua prática clínica com nossos cursos em saúde,
               desenvolvidos pelo BCRI, um dos maiores institutos de Pesquisa
               Clínica da América Latina, em colaboração com docentes de
@@ -131,7 +133,7 @@ const IndexPage: React.FC<PageProps> = () => {
             </p>
           </div>
         </div>
-        <div className="mt-[3.38rem]">
+        <div className="animatecss animatecss-fadeIn mt-[3.38rem]">
           <Swiper
             {...configSwiper}
             modules={[Autoplay]}
@@ -150,16 +152,17 @@ const IndexPage: React.FC<PageProps> = () => {
           </Swiper>
         </div>
       </div>
+
       {/* Sobre nós */}
       <div className="mb-[8rem] mt-[8rem] flex flex-col items-center justify-center">
         <div className="flex  flex-col gap-6">
           <span className="font-display  text-lg font-medium text-indigo-600">
             SOBRE NÓS
           </span>
-          <h1 className="font-title max-w-[30rem] text-4xl font-medium leading-10 text-slate-950">
+          <h1 className="max-w-[30rem] font-title text-4xl font-medium leading-10 text-slate-950">
             Transformando a Saúde através da Educação, Uma Mente de Cada Vez
           </h1>
-          <p className="font-display max-w-[40rem] text-base font-normal leading-relaxed text-zinc-700">
+          <p className="max-w-[40rem] font-display text-base font-normal leading-relaxed text-zinc-700">
             Nossa equipe de especialistas traz décadas de experiência clínica e
             acadêmica. Fundamos a Galen Academy para resolver os desafios da
             educação em saúde que nós mesmos enfrentamos. Em verdade, é a
@@ -175,15 +178,15 @@ const IndexPage: React.FC<PageProps> = () => {
             <div className="flex w-full max-w-[46rem] flex-col items-center justify-center gap-7">
               <div className="flex gap-2">
                 <StartIcon />
-                <span className="font-display text-center text-lg font-medium text-indigo-600">
+                <span className="text-center font-display text-lg font-medium text-indigo-600">
                   PÓS-GRADUAÇÃO
                 </span>
                 <StartIcon />
               </div>
-              <h1 className="leading-20 font-title text-center text-6xl font-medium text-slate-950">
+              <h1 className="leading-20 text-center font-title text-6xl font-medium text-slate-950">
                 Capacitação em Leitura Científica
               </h1>
-              <p className="font-display text-center text-base font-normal leading-relaxed text-zinc-700">
+              <p className="text-center font-display text-base font-normal leading-relaxed text-zinc-700">
                 {' '}
                 O curso "Leitura Científica" é uma oportunidade imperdível para
                 os profissionais da saúde que desejam compreender e interpretar
@@ -243,7 +246,7 @@ const IndexPage: React.FC<PageProps> = () => {
 
           <div>
             <div className="mt-32 inline-flex h-16 w-full items-center justify-between">
-              <span className="font-title max-w-[32rem] text-3xl font-bold leading-9 text-slate-950">
+              <span className="max-w-[32rem] font-title text-3xl font-bold leading-9 text-slate-950">
                 Descubra nossos Cursos de Saúde e Pesquisa para Avançar na sua
                 Carreira
               </span>
@@ -288,7 +291,7 @@ const IndexPage: React.FC<PageProps> = () => {
       {/* Coordenadores */}
       <div className="flex justify-center">
         <div className="mt-32 w-full max-w-[70.25rem]">
-          <h1 className="font-title w-full text-center text-3xl font-semibold leading-9 text-slate-950">
+          <h1 className="w-full text-center font-title text-3xl font-semibold leading-9 text-slate-950">
             Nossos Coordenadores
           </h1>
           <div className="pt-12">
@@ -307,7 +310,7 @@ const IndexPage: React.FC<PageProps> = () => {
       <div className="mt-32">
         <div className="mx-auto flex  items-center justify-center bg-[#F7F7F8] bg-[url('../images/shape2.svg')] bg-left-bottom bg-no-repeat px-[9.75rem] py-[4.5rem]">
           <div className="flex max-w-[70.5rem]">
-            <span className="font-title max-w-[22.5rem] text-4xl font-medium leading-10 text-slate-950">
+            <span className="max-w-[22.5rem] font-title text-4xl font-medium leading-10 text-slate-950">
               Excelência e Inovação em Nossa Educação em Saúde
             </span>
             <div className="ml-[7.5rem] grid grid-cols-2 gap-x-28 gap-y-20">
@@ -320,10 +323,10 @@ const IndexPage: React.FC<PageProps> = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="font-title text-center text-xl font-semibold leading-7 text-slate-950">
+                  <div className="text-center font-title text-xl font-semibold leading-7 text-slate-950">
                     Certificados
                   </div>
-                  <div className="font-display line-clamp-3 max-w-[14rem] self-stretch text-base font-normal leading-relaxed text-zinc-700">
+                  <div className="line-clamp-3 max-w-[14rem] self-stretch font-display text-base font-normal leading-relaxed text-zinc-700">
                     Pós-graduações registradas no MEC (Ministério da Educação).
                   </div>
                 </div>
@@ -338,10 +341,10 @@ const IndexPage: React.FC<PageProps> = () => {
       <div className="mt-[6.5rem]">
         <div className="flex flex-col items-center justify-start gap-8">
           <div className="flex flex-col items-start justify-start gap-2">
-            <div className="font-display self-stretch text-center text-lg font-medium text-indigo-600">
+            <div className="self-stretch text-center font-display text-lg font-medium text-indigo-600">
               Curso de curta duração
             </div>
-            <div className="font-title w-96 text-center text-4xl font-medium leading-10 text-slate-950">
+            <div className="w-96 text-center font-title text-4xl font-medium leading-10 text-slate-950">
               Pesquisa Clínica
             </div>
           </div>
@@ -355,7 +358,7 @@ const IndexPage: React.FC<PageProps> = () => {
             <div className="absolute left-0 top-0 h-full w-full rounded-lg bg-gradient-to-r from-indigo-600 to-black opacity-50 mix-blend-hard-light" />
 
             <div className="absolute left-[40px] top-[349px] flex flex-col items-start justify-start gap-4">
-              <div className="font-title w-96 text-2xl font-semibold text-white">
+              <div className="w-96 font-title text-2xl font-semibold text-white">
                 Capacitação em pesquisa clínica para Profissionais da saúde
               </div>
 
@@ -380,12 +383,12 @@ const IndexPage: React.FC<PageProps> = () => {
       <div className="mt-20">
         <div className="flex flex-col items-center justify-start gap-12  bg-neutral-100 bg-[url('../images/shape3.svg')] bg-cover bg-no-repeat py-32">
           <div className="flex flex-col items-center justify-start gap-4">
-            <div className="font-title w-96 text-center text-6xl font-medium leading-[4rem] text-indigo-600">
+            <div className="w-96 text-center font-title text-6xl font-medium leading-[4rem] text-indigo-600">
               Amplie Seus Horizontes na Saúde
             </div>
           </div>
           <div className="flex items-center justify-end gap-[8px] rounded-[76px] bg-[#FEDAC2] px-10 py-8 transition-all duration-300 ease-in-out hover:scale-105 hover:bg-[#FEDAC2]">
-            <span className="text-primary_black text-xl font-medium uppercase">
+            <span className="text-xl font-medium uppercase text-primary_black">
               Comece sua jornada
             </span>
           </div>

@@ -5,6 +5,15 @@ module.exports = {
     `./src/components/**/*.{js,jsx,ts,tsx}`,
   ],
   theme: {
+    animatedSettings: {
+      animatedSpeed: 1000,
+      heartBeatSpeed: 500,
+      hingeSpeed: 2000,
+      bounceInSpeed: 750,
+      bounceOutSpeed: 750,
+      animationDelaySpeed: 500,
+      classes: ['bounce', 'heartBeat'],
+    },
     extend: {
       fontFamily: {
         display: 'Space Grotesk',
@@ -25,5 +34,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require('tailwind-animatecss')],
 };
