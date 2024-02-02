@@ -9,7 +9,7 @@ import './src/styles/global.css';
 export const onRouteUpdate = () => {
   AOS.init({
     duration: 1000, // Você pode personalizar as opções do AOS aqui
-    once: false,
+    once: true,
   });
   AOS.refresh();
 };
