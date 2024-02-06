@@ -248,7 +248,7 @@ const IndexPage: React.FC<PageProps> = () => {
 
           {/* cursos */}
 
-          <div data-aos="zoom-in">
+          <div data-aos="zoom-in" id="cursos">
             <div className="mt-32 inline-flex h-16 w-full items-center justify-between">
               <span className="max-w-[32rem] font-title text-3xl font-bold leading-9 text-slate-950">
                 Descubra nossos Cursos de Saúde e Pesquisa para Avançar na sua
