@@ -18,7 +18,7 @@ const CoursePage: React.FC<PageProps> = () => {
                     className=" flex w-full items-center justify-center"
                     data-aos="fade-in"
                 >
-                    <div className="mt-11 h-[17rem] flex w-full max-w-8xl flex-col gap-[54px]" />
+                    <div className="mt-11 h-[20rem] flex w-full max-w-8xl flex-col gap-[54px]" />
 
                     <div className="absolute top-0 w-full h-full ">
                         <div className="grid grid-cols-1 px-5 xl:grid-cols-2 max-w-8xl mx-auto">
@@ -46,7 +46,7 @@ const CoursePage: React.FC<PageProps> = () => {
                                 </div>
 
                                 <div className="flex flex-col xl:text-white">
-                                    <h1 className="title text-4xl md:text-[3.5rem] font-bold  max-w-lg">
+                                    <h1 className="title text-4xl md:leading-[4rem] py-5 md:text-[3.5rem] font-bold  max-w-lg">
                                         Capacitação em Leitura Cientiífica
                                     </h1>
                                 </div>
