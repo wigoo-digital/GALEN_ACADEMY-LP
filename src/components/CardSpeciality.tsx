@@ -1,5 +1,5 @@
-import React from 'react';
-import { IoIosArrowForward } from 'react-icons/io';
+import React from "react";
+import { IoIosArrowForward } from "react-icons/io";
 
 export const CardSpeciality = () => {
   return (

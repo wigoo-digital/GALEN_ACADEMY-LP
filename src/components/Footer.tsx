@@ -1,11 +1,11 @@
-import { StaticImage } from 'gatsby-plugin-image';
-import React from 'react';
+import { StaticImage } from "gatsby-plugin-image";
+import React from "react";
 import {
   IoLogoFacebook,
   IoLogoInstagram,
   IoLogoLinkedin,
   IoLogoYoutube,
-} from 'react-icons/io';
+} from "react-icons/io";
 
 export const Footer = () => {
   return (

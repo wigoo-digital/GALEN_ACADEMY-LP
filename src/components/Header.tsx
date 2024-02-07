@@ -1,8 +1,8 @@
-import { menus } from '@data/menu';
-import { Link } from 'gatsby';
-import { StaticImage } from 'gatsby-plugin-image';
-import React from 'react';
-import { Magnifying } from '../icons/magnifying';
+import { menus } from "@data/menu";
+import { Link } from "gatsby";
+import { StaticImage } from "gatsby-plugin-image";
+import React from "react";
+import { Magnifying } from "../icons/magnifying";
 
 export const Header = () => {
   return (
