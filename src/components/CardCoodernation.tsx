@@ -1,5 +1,5 @@
-import React from 'react';
-import { GoArrowUpRight } from 'react-icons/go';
+import React from "react";
+import { GoArrowUpRight } from "react-icons/go";
 
 export const CardCoodernation: React.FC = () => {
   return (
