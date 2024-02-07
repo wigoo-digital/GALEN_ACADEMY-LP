@@ -1,15 +1,15 @@
-import { CardCoodernation } from '@components/CardCoodernation';
-import { CardCourse } from '@components/CardCourse';
-import { CardSpeciality } from '@components/CardSpeciality';
-import { Footer } from '@components/Footer';
-import { Header } from '@components/Header';
-import type { HeadFC, PageProps } from 'gatsby';
-import { StaticImage } from 'gatsby-plugin-image';
-import * as React from 'react';
-import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
-import { Autoplay } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { StartIcon } from '../icons/start';
+import { CardCoodernation } from "@components/CardCoodernation";
+import { CardCourse } from "@components/CardCourse";
+import { CardSpeciality } from "@components/CardSpeciality";
+import { Footer } from "@components/Footer";
+import { Header } from "@components/Header";
+import type { HeadFC, PageProps } from "gatsby";
+import { StaticImage } from "gatsby-plugin-image";
+import * as React from "react";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { Autoplay } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { StartIcon } from "../icons/start";
 
 const IndexPage: React.FC<PageProps> = () => {
   const swiperRef = React.useRef<any>(null);
@@ -191,7 +191,7 @@ const IndexPage: React.FC<PageProps> = () => {
                 Capacitação em Leitura Científica
               </h1>
               <p className="text-center font-display text-base font-normal leading-relaxed text-zinc-700">
-                {' '}
+                {" "}
                 O curso "Leitura Científica" é uma oportunidade imperdível para
                 os profissionais da saúde que desejam compreender e interpretar
                 todas as informações de um artigo científico. Foi criado com uma
@@ -278,7 +278,7 @@ const IndexPage: React.FC<PageProps> = () => {
             <div className="mt-14">
               <Swiper
                 {...configSpecialities}
-                onSlideChange={() => console.log('slide change')}
+                onSlideChange={() => console.log("slide change")}
                 ref={swiperRef}
               >
                 {Array.from({ length: 10 }).map((_, index) => (
