@@ -12,7 +12,7 @@ export const Footer = () => {
     <div className="bg-indigo-600">
       <div
         // data-aos="zoom-in"
-        className="flex w-full items-center justify-between px-40 py-16"
+        className="flex lg:flex-row flex-col w-full items-center justify-between px-40 py-16"
       >
         <div className="flex h-7 items-center justify-start gap-2">
           <StaticImage

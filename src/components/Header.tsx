@@ -10,7 +10,7 @@ export const Header = () => {
       <div className="flex h-[104px] w-full max-w-8xl flex-shrink-0 items-center justify-between py-[32px]">
         <StaticImage src="../images/logo.svg" alt="logo" />
 
-        <div className="flex items-center justify-end gap-[16px]">
+        <div className="hidden lg:flex items-center justify-end gap-[16px]">
           {menus.map((menu) => (
             <Link to={menu.url} key={menu.id}>
               <span className="text-right text-[14px] font-medium uppercase text-white">

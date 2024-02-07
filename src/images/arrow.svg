@@ -1,0 +1,10 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="moculo accordion icons">
+<mask id="mask0_1345_1459" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="32" height="32">
+<rect id="Bounding box" width="32" height="32" fill="#D9D9D9"/>
+</mask>
+<g mask="url(#mask0_1345_1459)">
+<path id="swap_vert" d="M10.6663 17.3332V7.7665L7.23301 11.1998L5.33301 9.33317L11.9997 2.6665L18.6663 9.33317L16.7663 11.1998L13.333 7.7665V17.3332H10.6663ZM19.9997 29.3332L13.333 22.6665L15.233 20.7998L18.6663 24.2332V14.6665H21.333V24.2332L24.7663 20.7998L26.6663 22.6665L19.9997 29.3332Z" fill="#4242FF"/>
+</g>
+</g>
+</svg>
