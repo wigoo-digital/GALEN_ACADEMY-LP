@@ -6,6 +6,7 @@ import { ChevronRightIcon, StarIcon } from '@heroicons/react/24/solid'
 import { StaticImage } from 'gatsby-plugin-image';
 
 import "./styles.css"
+import { CardBenefit } from '@components/CardBenefit';
 
 const CoursePage: React.FC<PageProps> = () => {
     return (
@@ -20,8 +21,8 @@ const CoursePage: React.FC<PageProps> = () => {
 
                     </div>
 
-                    <div className="absolute top-0 w-full h-full">
-                        <div className="grid grid-cols-1 xl:grid-cols-2 max-w-8xl mx-auto">
+                    <div className="absolute top-0 w-full h-full ">
+                        <div className="grid grid-cols-1 px-10 xl:grid-cols-2 max-w-8xl mx-auto">
 
                             <div className="order-last xl:order-first flex flex-col gap-y-3 h-full py-10">
                                 <div className="xl:text-white flex flex-row align-center gap-x-1">
@@ -161,11 +162,33 @@ const CoursePage: React.FC<PageProps> = () => {
                                         A estatística desempenha um papel fundamental na coleta, apresentação, análise e interpretação de dados em diversas áreas do conhecimento. Quando aplicada ao campo biológico, ela se transforma em bioestatística, uma... <span className="font-bold text-primary_blue">Continuar lendo</span>
                                     </p>
                                 </div>
+
+
+
+                                <span className="text-3xl mt-20 mb-5 font-bold text-neutral-950">
+                                    Principais benefícios
+                                </span>
+
+                                <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-5">
+                                    <CardBenefit />
+                                    <CardBenefit />
+                                    <CardBenefit />
+                                    <CardBenefit />
+                                    <CardBenefit />
+                                </div>
+
+
+
+
+                                <span className="text-3xl mt-20 mb-5 font-bold text-neutral-950">
+                                    Grade Currícular
+                                </span>
+                                
                             </div>
 
 
                             <div className="order-first xl:order-last block h-full">
-                                <div className="sticky top-10 h-fit w-full px-20">
+                                <div className="sticky top-10 h-fit w-full px-10 xl:px-20">
                                     <form className="bg-white overflow-hidden shadow-xl rounded-xl h-full" action="#">
                                         <div className="w-full flex gap-y-3 items-center flex-col bg-neutral-100 px-10 py-6">
                                             <span className="text-sm font-[500] text-neutral-700 [&>strong]:text-xl [&>strong]:text-neutral-950">
