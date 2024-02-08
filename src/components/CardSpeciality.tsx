@@ -3,7 +3,7 @@ import { IoIosArrowForward } from "react-icons/io";
 
 export const CardSpeciality = () => {
   return (
-    <div className="flex w-80 flex-col items-start justify-start rounded-3xl ">
+    <div className="flex w-52 lg:w-80 flex-col items-start justify-start rounded-3xl ">
       <img
         className="h-36 w-80 rounded-tl-3xl rounded-tr-3xl"
         src="https://via.placeholder.com/309x143"
