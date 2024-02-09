@@ -4,13 +4,12 @@ import { Footer } from "@components/Footer";
 import { Header } from "@components/Header";
 import { OurTeam } from "@components/OurTeam";
 import { Benefits } from "@data/benefits";
-import { carrouselHeroHome } from "@data/carrouselHeroHome";
 import { courses } from "@data/courses";
 import { doctors } from "@data/doctors";
 import { highlight_course } from "@data/highlight-course";
 import { useMenu } from "@hooks/useMenu";
 import { useLocation } from "@reach/router";
-import type { HeadFC, PageProps } from "gatsby";
+import { Link, type HeadFC, type PageProps } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import * as React from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
@@ -87,7 +86,7 @@ const IndexPage: React.FC<PageProps> = () => {
         spaceBetween: 32,
       },
       1024: {
-        slidesPerView: 3,
+        slidesPerView: courses.length >= 3 ? 3 : 2,
         spaceBetween: 32,
       },
     },
@@ -153,14 +152,15 @@ const IndexPage: React.FC<PageProps> = () => {
             }}
             speed={3000}
           >
-            {carrouselHeroHome.map((_, index) => (
+            {courses.map((_, index) => (
               <SwiperSlide key={index}>
                 <CardCourse
                   type={_.type}
-                  modality={_.modality}
+                  modality={_.category}
                   title={_.title}
-                  description={_.description}
-                  imageURL={_.imageURL}
+                  description={_.aboutCourse}
+                  imageURL={_.imageUrl}
+                  slug={_.slug}
                 />
               </SwiperSlide>
             ))}
@@ -249,11 +249,16 @@ const IndexPage: React.FC<PageProps> = () => {
                 </div>
               </div>
 
-              <div className="mt-12 inline-flex h-14 max-w-96 w-full items-center justify-center gap-2 rounded-full bg-indigo-600 px-6 py-4 hover:scale-105 transition-all duration-300 ease-in-out cursor-pointer">
-                <span className="font-display text-lg font-medium leading-relaxed text-white">
-                  Saiba mais
-                </span>
-              </div>
+              <Link
+                to={`/course/${highlight_course.slug}`}
+                className="w-full justify-center items-center flex"
+              >
+                <div className="mt-12 inline-flex h-14 max-w-96 w-full items-center justify-center gap-2 rounded-full bg-indigo-600 px-6 py-4 hover:scale-105 transition-all duration-300 ease-in-out cursor-pointer ">
+                  <span className="font-display text-lg font-medium leading-relaxed text-white">
+                    Saiba mais
+                  </span>
+                </div>
+              </Link>
             </div>
           </div>
 
@@ -297,6 +302,7 @@ const IndexPage: React.FC<PageProps> = () => {
                     <CardSpeciality
                       imageUrl={course.imageUrl}
                       title={course.title}
+                      slug={course.slug}
                     />
                   </SwiperSlide>
                 ))}

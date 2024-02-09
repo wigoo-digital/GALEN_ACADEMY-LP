@@ -12,4 +12,5 @@ export const highlight_course = {
   coordenadorName: "Dr. João Silva",
   coordenadorDescription: "Advogado e Médico",
   price: "R$ 2.500,00",
+  slug: "capacitacao-em-leitura-cientifica",
 };
