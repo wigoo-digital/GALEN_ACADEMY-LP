@@ -61,7 +61,6 @@ export const Header = () => {
               Quem Somos
             </span>
           </div>
-          hamburguer
         </div>
       </div>
 
