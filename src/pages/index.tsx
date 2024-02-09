@@ -344,7 +344,7 @@ const IndexPage: React.FC<PageProps> = () => {
                     </div>
                   </div> */}
                   <Icon />
-                  <div className="text-center font-title text-xl font-semibold leading-7 text-slate-950">
+                  <div className="text-center font-title text-xl font-semibold leading-7 text-slate-950 lg:text-left">
                     {title}I
                   </div>
                   <div className="line-clamp-3 lg:max-w-[14rem] self-stretch font-display text-base font-normal leading-relaxed text-zinc-700 text-center lg:text-left">
