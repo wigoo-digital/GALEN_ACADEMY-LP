@@ -1,3 +1,4 @@
+import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import React from "react";
 import {
@@ -29,18 +30,32 @@ export const Footer = () => {
         </div>
 
         <div className="flex items-start justify-start gap-6 mt-6 lg:mt-0">
-          <div className="flex items-center justify-center gap-2 p-2">
-            <IoLogoLinkedin size={24} color="#fff" />
-          </div>
-          <div className="flex items-center justify-center gap-2 p-2">
-            <IoLogoFacebook size={24} color="#fff" />
-          </div>
-          <div className="flex items-center justify-center gap-2 p-2">
-            <IoLogoInstagram size={24} color="#fff" />
-          </div>
-          <div className="flex items-center justify-center gap-2 p-2">
-            <IoLogoYoutube size={24} color="#fff" />
-          </div>
+          <Link
+            to="https://www.linkedin.com/company/galen-academy/"
+            target="_blank"
+          >
+            <div className="flex items-center justify-center gap-2 p-2">
+              <IoLogoLinkedin size={24} color="#fff" />
+            </div>
+          </Link>
+          <Link to="https://www.facebook.com/galen.academy" target="_blank">
+            <div className="flex items-center justify-center gap-2 p-2">
+              <IoLogoFacebook size={24} color="#fff" />
+            </div>
+          </Link>
+          <Link to="https://www.instagram.com/galenacademy/" target="_blank">
+            <div className="flex items-center justify-center gap-2 p-2">
+              <IoLogoInstagram size={24} color="#fff" />
+            </div>
+          </Link>
+          <Link
+            to="https://www.youtube.com/channel/UCYsSLQJK6QHQMhcdF6YcCYg?sub_confirmation=1"
+            target="_blank"
+          >
+            <div className="flex items-center justify-center gap-2 p-2">
+              <IoLogoYoutube size={24} color="#fff" />
+            </div>
+          </Link>
         </div>
       </div>
     </div>

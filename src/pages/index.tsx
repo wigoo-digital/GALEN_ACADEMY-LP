@@ -3,6 +3,11 @@ import { CardSpeciality } from "@components/CardSpeciality";
 import { Footer } from "@components/Footer";
 import { Header } from "@components/Header";
 import { OurTeam } from "@components/OurTeam";
+import { Benefits } from "@data/benefits";
+import { carrouselHeroHome } from "@data/carrouselHeroHome";
+import { courses } from "@data/courses";
+import { doctors } from "@data/doctors";
+import { highlight_course } from "@data/highlight-course";
 import type { HeadFC, PageProps } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import * as React from "react";
@@ -119,9 +124,15 @@ const IndexPage: React.FC<PageProps> = () => {
             }}
             speed={3000}
           >
-            {Array.from({ length: 10 }).map((_, index) => (
+            {carrouselHeroHome.map((_, index) => (
               <SwiperSlide key={index}>
-                <CardCourse />
+                <CardCourse
+                  type={_.type}
+                  modality={_.modality}
+                  title={_.title}
+                  description={_.description}
+                  imageURL={_.imageURL}
+                />
               </SwiperSlide>
             ))}
           </Swiper>
@@ -156,55 +167,51 @@ const IndexPage: React.FC<PageProps> = () => {
             <div className="flex w-full max-w-[46rem] flex-col items-center justify-center gap-7">
               <div className="flex gap-2">
                 <StartIcon />
-                <span className="text-center font-display text-lg font-medium text-indigo-600">
-                  PÓS-GRADUAÇÃO
+                <span className="text-center font-display text-lg font-medium text-indigo-600 uppercase">
+                  {highlight_course.type}
                 </span>
                 <StartIcon />
               </div>
               <h1 className="leading-20 text-center font-title text-3xl lg:text-6xl font-medium text-slate-950">
-                Capacitação em Leitura Científica
+                {highlight_course.title}
               </h1>
               <p className="text-center font-display text-base font-normal leading-relaxed text-zinc-700">
-                O curso "Leitura Científica" é uma oportunidade imperdível para
-                os profissionais da saúde que desejam compreender e interpretar
-                todas as informações de um artigo científico. Foi criado com uma
-                abordagem prática para facilitar o entendimento dos principais
-                conceitos de bioestatística e medicina baseada em evidência...
+                {highlight_course.description}
               </p>
 
               <div className="mt-12 flex w-full lg:items-center justify-between flex-col lg:flex-row">
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 w-full">
                   <img
                     className="h-16 w-16 rounded-full"
                     src="https://via.placeholder.com/64x64"
                   />
                   <div className="flex flex-col ml-4">
-                    <span className="font-display text-xl font-bold leading-7 text-slate-950">
-                      Dr. Remo Furtado
+                    <span className="font-display text-xl font-bold leading-7 text-slate-950 min-w-[10rem]">
+                      {highlight_course.coordenadorName}
                     </span>
                     <span className="font-display text-lg font-normal leading-snug text-zinc-600">
-                      Coordenador
+                      {highlight_course.coordenadorDescription}
                     </span>
                   </div>
                 </div>
 
-                <div className="w-9 rotate-90 border border-gray-300 hidden lg:block" />
-
                 <div className="flex items-center justify-between w-full mt-4">
-                  <div className="flex flex-col items-center">
-                    <span className="font-['Space Grotesk'] text-xl font-bold leading-7 text-slate-950">
-                      R$ 807,50
+                  <div className="w-9 rotate-90 border border-gray-300 hidden lg:block" />
+
+                  <div className="flex flex-col items-center justify-center">
+                    <span className="font-display text-xl font-bold leading-7 text-slate-950">
+                      {highlight_course.price}
                     </span>
-                    <span className="font-['Space Grotesk'] text-lg font-normal leading-snug text-zinc-600">
+                    <span className="font-display text-lg font-normal leading-snug text-zinc-600">
                       Valor à vista
                     </span>
                   </div>
 
-                  <div className="w-9  rotate-90 border border-gray-300" />
+                  <div className="w-9 rotate-90 border border-gray-300" />
 
-                  <div className="flex flex-col">
+                  <div className="flex flex-col ">
                     <span className="font-display text-xl font-bold leading-7 text-slate-950">
-                      EAD
+                      {highlight_course.modality}
                     </span>
                     <span className="font-display font-normal leading-snug text-zinc-600 *:text-lg">
                       Modalidade do curso
@@ -250,11 +257,14 @@ const IndexPage: React.FC<PageProps> = () => {
               </div>
             </div>
 
-            <div className="mt-14">
+            <div className="mt-14 h-full w-full">
               <Swiper {...configSpecialities} ref={swiperRef}>
-                {Array.from({ length: 10 }).map((_, index) => (
+                {courses.map((course, index) => (
                   <SwiperSlide key={index}>
-                    <CardSpeciality />
+                    <CardSpeciality
+                      imageUrl={course.imageUrl}
+                      title={course.title}
+                    />
                   </SwiperSlide>
                 ))}
               </Swiper>
@@ -270,45 +280,7 @@ const IndexPage: React.FC<PageProps> = () => {
           <h1 className="w-full text-center font-title text-3xl font-semibold leading-9 text-slate-950 pr-5">
             Nossos Coordenadores
           </h1>
-          <OurTeam
-            doctors={[
-              {
-                name: "Dr. José Carlos",
-                type: "Médico",
-                imageUrl: "https://via.placeholder.com/256x384",
-              },
-              {
-                name: "Dr. João Carlos",
-                type: "Médico",
-                imageUrl: "https://via.placeholder.com/256x384",
-              },
-              {
-                name: "Carolina Carvalho",
-                type: "Médico",
-                imageUrl: "https://via.placeholder.com/256x384",
-              },
-              {
-                name: "Carolina Carvalho",
-                type: "Médico",
-                imageUrl: "https://via.placeholder.com/256x384",
-              },
-              {
-                name: "Carolina Carvalho",
-                type: "Médico",
-                imageUrl: "https://via.placeholder.com/256x384",
-              },
-              {
-                name: "Carolina Carvalho",
-                type: "Médico",
-                imageUrl: "https://via.placeholder.com/256x384",
-              },
-              {
-                name: "Carolina Carvalho",
-                type: "Médico",
-                imageUrl: "https://via.placeholder.com/256x384",
-              },
-            ]}
-          />
+          <OurTeam doctors={doctors} />
         </div>
       </div>
 
@@ -323,21 +295,22 @@ const IndexPage: React.FC<PageProps> = () => {
               Excelência e Inovação em Nossa Educação em Saúde
             </span>
             <div className="lg:ml-[7.5rem] flex flex-col items-center lg:grid grid-cols-1 lg:grid-cols-2 gap-x-28 gap-y-20 mt-10 lg:mt-0">
-              {Array.from({ length: 7 }).map((_, index) => (
+              {Benefits.map(({ Icon, description, title }, index) => (
                 <div
                   className="flex w-64 flex-col items-center lg:items-start justify-start gap-2.5 data-[hidden=true]:hidden lg:data-[hidden=true]:flex transition-all duration-300 ease-in-out"
                   data-hidden={index > 2 && !showAll}
                 >
-                  <div className="flex items-center justify-center gap-2 rounded-3xl bg-indigo-600 p-3">
+                  {/* <div className="flex items-center justify-center gap-2 rounded-3xl bg-indigo-600 p-3">
                     <div className="relative h-8 w-8">
                       <div className="absolute left-0 top-0 h-8 w-8 bg-zinc-300"></div>
                     </div>
-                  </div>
+                  </div> */}
+                  <Icon />
                   <div className="text-center font-title text-xl font-semibold leading-7 text-slate-950">
-                    Certificados
+                    {title}I
                   </div>
                   <div className="line-clamp-3 lg:max-w-[14rem] self-stretch font-display text-base font-normal leading-relaxed text-zinc-700 text-center lg:text-left">
-                    Pós-graduações registradas no MEC (Ministério da Educação).
+                    {description}
                   </div>
                 </div>
               ))}

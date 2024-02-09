@@ -3,6 +3,7 @@ export const courses = [
     id: 1,
     title: "Capacitação em Leitura Cientiífica",
     slug: "capacitacao-em-leitura-cientifica",
+    imageUrl: "https://via.placeholder.com/256x384",
     rating: 4.5,
     qtdRating: "1.400",
     pricePIX: 902.5,
