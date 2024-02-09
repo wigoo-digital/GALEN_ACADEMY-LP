@@ -21,6 +21,7 @@ import {
   QuestionMarkCircleIcon,
   StarIcon,
 } from "@heroicons/react/24/solid";
+import useWindowSize from "@hooks/useWindowSize";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "./styles.css";
 
@@ -39,7 +40,10 @@ const Rating = ({ rating, qtd }: { rating: number; qtd: string }) => {
 };
 
 const CoursePage: React.FC<PageProps> = () => {
+  const { width } = useWindowSize();
+  const isMobile = width < 768;
   const [showMore, setShowMore] = React.useState(false);
+  const formRef = React.useRef<HTMLFormElement>(null);
   const configRelationCourse = {
     spaceBetween: 10,
     slidesPerView: 3,
@@ -67,6 +71,11 @@ const CoursePage: React.FC<PageProps> = () => {
     },
   };
   const course = courses[0];
+
+  const scrollToForm = () => {
+    if (!formRef.current) return;
+    formRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <main>
@@ -122,43 +131,48 @@ const CoursePage: React.FC<PageProps> = () => {
                 </div>
 
                 {/*  FORMULARIO */}
-                <div className="bg-white max-h-[55rem] w-full lg:hidden  right-0 lg:max-w-[466px] shadow-2xl lg:ml-auto rounded-xl mt-12">
-                  <div className="p-1">
-                    <div className="w-full flex gap-y-3 items-center flex-col bg-neutral-100 px-10 py-6 text-center lg:text-start">
-                      <span className="text-sm font-[500] text-neutral-700 [&>strong]:text-xl [&>strong]:text-neutral-950">
-                        <strong>
-                          {Intl.NumberFormat("pt-BR", {
-                            style: "currency",
-                            currency: "BRL",
-                          }).format(950)}
-                        </strong>{" "}
-                        no cartão ou{" "}
-                        <strong>
-                          {Intl.NumberFormat("pt-BR", {
-                            style: "currency",
-                            currency: "BRL",
-                          }).format(850)}
-                        </strong>{" "}
-                        no pix à vista
-                      </span>
-                      <span className="rounded-full font-bold bg-crimson px-3 py-1 w-fit text-white text-[0.75rem]">
-                        {course?.discount} de desconto
-                      </span>
-                    </div>
-                    <div className="flex flex-col px-10 py-3">
-                      <span className="text-2xl mb-3 font-bold text-primary_black">
-                        Preencha seus dados
-                      </span>
+                {isMobile && (
+                  <div
+                    className="bg-white max-h-[55rem] w-full lg:hidden right-0 lg:max-w-[466px] shadow-2xl lg:ml-auto rounded-xl mt-12"
+                    // ref={formRef}
+                  >
+                    <div className="p-1">
+                      <div className="w-full flex gap-y-3 items-center flex-col bg-neutral-100 px-10 py-6 text-center lg:text-start">
+                        <span className="text-sm font-[500] text-neutral-700 [&>strong]:text-xl [&>strong]:text-neutral-950">
+                          <strong>
+                            {Intl.NumberFormat("pt-BR", {
+                              style: "currency",
+                              currency: "BRL",
+                            }).format(950)}
+                          </strong>{" "}
+                          no cartão ou{" "}
+                          <strong>
+                            {Intl.NumberFormat("pt-BR", {
+                              style: "currency",
+                              currency: "BRL",
+                            }).format(850)}
+                          </strong>{" "}
+                          no pix à vista
+                        </span>
+                        <span className="rounded-full font-bold bg-crimson px-3 py-1 w-fit text-white text-[0.75rem]">
+                          {course?.discount} de desconto
+                        </span>
+                      </div>
+                      <div className="flex flex-col px-10 py-3">
+                        <span className="text-2xl mb-3 font-bold text-primary_black">
+                          Preencha seus dados
+                        </span>
 
-                      <span className="text-sm font-normal text-neutral-600">
-                        Complete com seus dados para garantir sua vaga na
-                        formação de{" "}
-                        <strong>Capacitação em Leitura Cientiífica</strong>
-                      </span>
+                        <span className="text-sm font-normal text-neutral-600">
+                          Complete com seus dados para garantir sua vaga na
+                          formação de{" "}
+                          <strong>Capacitação em Leitura Cientiífica</strong>
+                        </span>
+                      </div>
+                      <RDFormComponent id="formulario-boas-praticas-de-telemedicina-e-telessaude-c36089f42acbc712df59" />
                     </div>
-                    <RDFormComponent id="formulario-boas-praticas-de-telemedicina-e-telessaude-c36089f42acbc712df59" />
                   </div>
-                </div>
+                )}
 
                 {/* ----------------- CONTEÚDO ----------------*/}
 
@@ -245,14 +259,14 @@ const CoursePage: React.FC<PageProps> = () => {
                       </div>
                     </div>
 
-                    <a
-                      href="#"
-                      className="hover:opacity-70 mt-5 w-full py-4 flex flex-row justify-center rounded-full text-white text-md bg-[#4242FF16]"
+                    <div
+                      className="hover:opacity-70 mt-5 w-full py-4 flex flex-row justify-center rounded-full text-white text-md bg-[#4242FF16] cursor-pointer hover:scale-105 transition-all duration-300 ease-in-out lg:hidden"
+                      onClick={scrollToForm}
                     >
                       <span className="text-primary_blue font-bold ">
                         Garantir minha vaga
                       </span>
-                    </a>
+                    </div>
                   </div>
                 </div>
 
@@ -476,42 +490,45 @@ const CoursePage: React.FC<PageProps> = () => {
               </div>
 
               {/* FORMULÁRIO DIREITA */}
-              <div className="bg-white max-h-[55rem] w-full hidden sticky lg:block top-3 right-0 lg:max-w-[466px] shadow-2xl lg:ml-auto rounded-xl">
-                <div className="p-1">
-                  <div className="w-full flex gap-y-3 items-center flex-col bg-neutral-100 px-10 py-6 text-center lg:text-start">
-                    <span className="text-sm font-[500] text-neutral-700 [&>strong]:text-xl [&>strong]:text-neutral-950">
-                      <strong>
-                        {Intl.NumberFormat("pt-BR", {
-                          style: "currency",
-                          currency: "BRL",
-                        }).format(950)}
-                      </strong>{" "}
-                      no cartão ou{" "}
-                      <strong>
-                        {Intl.NumberFormat("pt-BR", {
-                          style: "currency",
-                          currency: "BRL",
-                        }).format(850)}
-                      </strong>{" "}
-                      no pix à vista
-                    </span>
-                    <span className="rounded-full font-bold bg-crimson px-3 py-1 w-fit text-white text-[0.75rem]">
-                      {course?.discount} de desconto
-                    </span>
-                  </div>
-                  <div className="flex flex-col px-10 py-3">
-                    <span className="text-2xl mb-3 font-bold text-primary_black">
-                      Preencha seus dados
-                    </span>
+              {!isMobile && (
+                <div className="bg-white max-h-[55rem] w-full hidden lg:sticky lg:block top-3 right-0 lg:max-w-[466px] shadow-2xl lg:ml-auto rounded-xl">
+                  <div className="p-1">
+                    <div className="w-full flex gap-y-3 items-center flex-col bg-neutral-100 px-10 py-6 text-center lg:text-start">
+                      <span className="text-sm font-[500] text-neutral-700 [&>strong]:text-xl [&>strong]:text-neutral-950">
+                        <strong>
+                          {Intl.NumberFormat("pt-BR", {
+                            style: "currency",
+                            currency: "BRL",
+                          }).format(950)}
+                        </strong>{" "}
+                        no cartão ou{" "}
+                        <strong>
+                          {Intl.NumberFormat("pt-BR", {
+                            style: "currency",
+                            currency: "BRL",
+                          }).format(850)}
+                        </strong>{" "}
+                        no pix à vista
+                      </span>
+                      <span className="rounded-full font-bold bg-crimson px-3 py-1 w-fit text-white text-[0.75rem]">
+                        {course?.discount} de desconto
+                      </span>
+                    </div>
+                    <div className="flex flex-col px-10 py-3">
+                      <span className="text-2xl mb-3 font-bold text-primary_black">
+                        Preencha seus dados
+                      </span>
 
-                    <span className="text-sm font-normal text-neutral-600">
-                      Complete com seus dados para garantir sua vaga na formação
-                      de <strong>Capacitação em Leitura Cientiífica</strong>
-                    </span>
+                      <span className="text-sm font-normal text-neutral-600">
+                        Complete com seus dados para garantir sua vaga na
+                        formação de{" "}
+                        <strong>Capacitação em Leitura Cientiífica</strong>
+                      </span>
+                    </div>
+                    <RDFormComponent id="formulario-boas-praticas-de-telemedicina-e-telessaude-c36089f42acbc712df59" />
                   </div>
-                  <RDFormComponent id="formulario-boas-praticas-de-telemedicina-e-telessaude-c36089f42acbc712df59" />
                 </div>
-              </div>
+              )}
             </div>
 
             <Footer />
