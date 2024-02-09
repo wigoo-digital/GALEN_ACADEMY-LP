@@ -26,7 +26,7 @@ import "./styles.css";
 
 const Rating = ({ rating, qtd }: { rating: number; qtd: string }) => {
   return (
-    <div className="xl:text-white flex flex-row align-center gap-x-1">
+    <div className="text-white flex flex-row align-center gap-x-1">
       {[...Array(5)].map((_, i) => (
         <StarIcon
           key={i}
@@ -83,10 +83,10 @@ const CoursePage: React.FC<PageProps> = () => {
             <div className="grid grid-cols-1 px-5 xl:grid-cols-2 max-w-8xl mx-auto">
               {/* CONTEÚDO ESQUERDO ./*/}
               <div className="order-last xl:order-first flex flex-col gap-y-3 h-full py-10">
-                <div className="hidden xl:flex flex-col gap-y-3">
+                <div className="flex flex-col gap-y-3">
                   <Rating rating={4} qtd={"1.400"} />
 
-                  <div className="flex flex-row xl:text-white">
+                  <div className="flex flex-row text-white">
                     <div className="bg-[#ffffff30] text-sm flex gap-x-5 px-5 py-2 rounded-full items-center">
                       <span>{course?.category}</span>
                       <span className="opacity-50">|</span>
@@ -98,7 +98,7 @@ const CoursePage: React.FC<PageProps> = () => {
                     </div>
                   </div>
 
-                  <div className="flex flex-col xl:text-white">
+                  <div className="flex flex-col text-white">
                     <h1 className="title text-4xl md:leading-[4rem] py-5 md:text-[3.5rem] font-bold  max-w-lg">
                       {course?.title}
                     </h1>
@@ -120,6 +120,46 @@ const CoursePage: React.FC<PageProps> = () => {
                     </div>
                   </div>
                 </div>
+
+                {/*  FORMULARIO */}
+                <div className="bg-white max-h-[55rem] w-full lg:hidden  right-0 lg:max-w-[466px] shadow-2xl lg:ml-auto rounded-xl mt-12">
+                  <div className="p-1">
+                    <div className="w-full flex gap-y-3 items-center flex-col bg-neutral-100 px-10 py-6 text-center lg:text-start">
+                      <span className="text-sm font-[500] text-neutral-700 [&>strong]:text-xl [&>strong]:text-neutral-950">
+                        <strong>
+                          {Intl.NumberFormat("pt-BR", {
+                            style: "currency",
+                            currency: "BRL",
+                          }).format(950)}
+                        </strong>{" "}
+                        no cartão ou{" "}
+                        <strong>
+                          {Intl.NumberFormat("pt-BR", {
+                            style: "currency",
+                            currency: "BRL",
+                          }).format(850)}
+                        </strong>{" "}
+                        no pix à vista
+                      </span>
+                      <span className="rounded-full font-bold bg-crimson px-3 py-1 w-fit text-white text-[0.75rem]">
+                        {course?.discount} de desconto
+                      </span>
+                    </div>
+                    <div className="flex flex-col px-10 py-3">
+                      <span className="text-2xl mb-3 font-bold text-primary_black">
+                        Preencha seus dados
+                      </span>
+
+                      <span className="text-sm font-normal text-neutral-600">
+                        Complete com seus dados para garantir sua vaga na
+                        formação de{" "}
+                        <strong>Capacitação em Leitura Cientiífica</strong>
+                      </span>
+                    </div>
+                    <RDFormComponent id="formulario-boas-praticas-de-telemedicina-e-telessaude-c36089f42acbc712df59" />
+                  </div>
+                </div>
+
                 {/* ----------------- CONTEÚDO ----------------*/}
 
                 {/*  Para quem é o curso? */}
@@ -436,7 +476,7 @@ const CoursePage: React.FC<PageProps> = () => {
               </div>
 
               {/* FORMULÁRIO DIREITA */}
-              <div className="bg-white max-h-[55rem] w-full sticky top-3 right-0  lg:max-w-[466px] shadow-2xl lg:ml-auto rounded-xl">
+              <div className="bg-white max-h-[55rem] w-full hidden sticky lg:block top-3 right-0 lg:max-w-[466px] shadow-2xl lg:ml-auto rounded-xl">
                 <div className="p-1">
                   <div className="w-full flex gap-y-3 items-center flex-col bg-neutral-100 px-10 py-6 text-center lg:text-start">
                     <span className="text-sm font-[500] text-neutral-700 [&>strong]:text-xl [&>strong]:text-neutral-950">
