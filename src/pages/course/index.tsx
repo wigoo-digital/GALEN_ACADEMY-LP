@@ -42,6 +42,7 @@ const Rating = ({ rating, qtd }: { rating: number; qtd: string }) => {
 const CoursePage: React.FC<PageProps> = () => {
   const { width } = useWindowSize();
   const isMobile = width < 768;
+  const [isMounted, setIsMounted] = React.useState(false);
   const [showMore, setShowMore] = React.useState(false);
   const formRef = React.useRef<HTMLFormElement>(null);
   const configRelationCourse = {
@@ -76,6 +77,10 @@ const CoursePage: React.FC<PageProps> = () => {
     if (!formRef.current) return;
     formRef.current?.scrollIntoView({ behavior: "smooth" });
   };
+
+  React.useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   return (
     <main>
@@ -131,7 +136,7 @@ const CoursePage: React.FC<PageProps> = () => {
                 </div>
 
                 {/*  FORMULARIO */}
-                {isMobile && (
+                {isMobile && isMounted && (
                   <div
                     className="bg-white max-h-[55rem] w-full lg:hidden right-0 lg:max-w-[466px] shadow-2xl lg:ml-auto rounded-xl mt-12"
                     // ref={formRef}
@@ -490,7 +495,7 @@ const CoursePage: React.FC<PageProps> = () => {
               </div>
 
               {/* FORMULÁRIO DIREITA */}
-              {!isMobile && (
+              {!isMobile && isMounted && (
                 <div className="bg-white max-h-[55rem] w-full hidden lg:sticky lg:block top-3 right-0 lg:max-w-[466px] shadow-2xl lg:ml-auto rounded-xl">
                   <div className="p-1">
                     <div className="w-full flex gap-y-3 items-center flex-col bg-neutral-100 px-10 py-6 text-center lg:text-start">
