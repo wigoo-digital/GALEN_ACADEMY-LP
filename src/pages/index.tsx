@@ -1,8 +1,8 @@
-import { CardCoodernation } from "@components/CardCoodernation";
 import { CardCourse } from "@components/CardCourse";
 import { CardSpeciality } from "@components/CardSpeciality";
 import { Footer } from "@components/Footer";
 import { Header } from "@components/Header";
+import { OurTeam } from "@components/OurTeam";
 import type { HeadFC, PageProps } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import * as React from "react";
@@ -73,33 +73,6 @@ const IndexPage: React.FC<PageProps> = () => {
       1024: {
         slidesPerView: 3,
         spaceBetween: 32,
-      },
-    },
-  };
-
-  const configDoctors = {
-    spaceBetween: 10,
-    slidesPerView: 3,
-    breakpoints: {
-      320: {
-        slidesPerView: 1.2,
-        spaceBetween: 10,
-      },
-      480: {
-        slidesPerView: 2.5,
-        spaceBetween: 20,
-      },
-      640: {
-        slidesPerView: 2.2,
-        spaceBetween: 30,
-      },
-      768: {
-        slidesPerView: 2.4,
-        spaceBetween: 40,
-      },
-      1024: {
-        slidesPerView: 4.4,
-        spaceBetween: 50,
       },
     },
   };
@@ -291,20 +264,51 @@ const IndexPage: React.FC<PageProps> = () => {
       </div>
 
       {/* Coordenadores */}
+
       <div className="flex justify-center ml-5" data-aos="zoom-in">
         <div className="mt-32 w-full max-w-[70.25rem]">
           <h1 className="w-full text-center font-title text-3xl font-semibold leading-9 text-slate-950 pr-5">
             Nossos Coordenadores
           </h1>
-          <div className="pt-12">
-            <Swiper {...configDoctors}>
-              {Array.from({ length: 10 }).map((_, index) => (
-                <SwiperSlide key={index}>
-                  <CardCoodernation />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
+          <OurTeam
+            doctors={[
+              {
+                name: "Dr. José Carlos",
+                type: "Médico",
+                imageUrl: "https://via.placeholder.com/256x384",
+              },
+              {
+                name: "Dr. João Carlos",
+                type: "Médico",
+                imageUrl: "https://via.placeholder.com/256x384",
+              },
+              {
+                name: "Carolina Carvalho",
+                type: "Médico",
+                imageUrl: "https://via.placeholder.com/256x384",
+              },
+              {
+                name: "Carolina Carvalho",
+                type: "Médico",
+                imageUrl: "https://via.placeholder.com/256x384",
+              },
+              {
+                name: "Carolina Carvalho",
+                type: "Médico",
+                imageUrl: "https://via.placeholder.com/256x384",
+              },
+              {
+                name: "Carolina Carvalho",
+                type: "Médico",
+                imageUrl: "https://via.placeholder.com/256x384",
+              },
+              {
+                name: "Carolina Carvalho",
+                type: "Médico",
+                imageUrl: "https://via.placeholder.com/256x384",
+              },
+            ]}
+          />
         </div>
       </div>
 
@@ -349,12 +353,6 @@ const IndexPage: React.FC<PageProps> = () => {
       </div>
 
       {/* Curso de curta duração */}
-      {/* <StaticImage
-        className="left-0 top-0 h-full w-full rounded-lg"
-        src="../images/handsDoctor.svg"
-        alt="image"
-      /> */}
-
       <div className="mt-[6.5rem]" data-aos="zoom-in">
         <div className="flex flex-col items-center justify-start gap-8 px-5 lg:px-0">
           <div className="flex flex-col items-start justify-start gap-2">
