@@ -14,9 +14,4 @@ export const menus = [
     title: "Cursos",
     url: "#cursos",
   },
-  {
-    id: 4,
-    title: "Contato",
-    url: "/contact",
-  },
 ];

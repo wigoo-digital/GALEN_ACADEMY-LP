@@ -8,6 +8,8 @@ import { carrouselHeroHome } from "@data/carrouselHeroHome";
 import { courses } from "@data/courses";
 import { doctors } from "@data/doctors";
 import { highlight_course } from "@data/highlight-course";
+import { useMenu } from "@hooks/useMenu";
+import { useLocation } from "@reach/router";
 import type { HeadFC, PageProps } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import * as React from "react";
@@ -19,6 +21,15 @@ import { Swiper, SwiperSlide } from "swiper/react";
 const IndexPage: React.FC<PageProps> = () => {
   const swiperRef = React.useRef<any>(null);
   const [showAll, setShowAll] = React.useState(false);
+  const {
+    aboutRef,
+    courseRef,
+    postGraduationRef,
+    handleAbout,
+    handlePostGraduation,
+    handleCourse,
+  } = useMenu();
+  const location = useLocation();
 
   const configSwiper = {
     spaceBetween: 10,
@@ -92,6 +103,24 @@ const IndexPage: React.FC<PageProps> = () => {
     swiperRef.current.swiper.slidePrev();
   };
 
+  React.useEffect(() => {
+    const hash = location.hash;
+
+    switch (hash) {
+      case "#pos-graduacao":
+        handlePostGraduation();
+        break;
+      case "#cursos":
+        handleCourse();
+        break;
+      case "#quem-somos":
+        handleAbout();
+        break;
+      default:
+        break;
+    }
+  }, [location]);
+
   return (
     <main>
       <div className="flex-shrink-0 bg-primary_black bg-[url('../images/hero.svg')] bg-cover bg-center ">
@@ -120,7 +149,7 @@ const IndexPage: React.FC<PageProps> = () => {
             loop={true}
             autoplay={{
               delay: 0,
-              disableOnInteraction: false,
+              disableOnInteraction: true,
             }}
             speed={3000}
           >
@@ -144,7 +173,7 @@ const IndexPage: React.FC<PageProps> = () => {
         className="mb-[8rem] mt-[8rem] flex flex-col items-center justify-center px-6"
         data-aos="zoom-in"
       >
-        <div className="flex  flex-col gap-6">
+        <div className="flex  flex-col gap-6" ref={aboutRef}>
           <span className="font-display  text-lg font-medium text-indigo-600">
             SOBRE NÓS
           </span>
@@ -161,7 +190,7 @@ const IndexPage: React.FC<PageProps> = () => {
       </div>
 
       {/* Pós Graduação */}
-      <div className="lg:flex lg:justify-center ">
+      <div className="lg:flex lg:justify-center" ref={postGraduationRef}>
         <div className="max-w-[70.25rem] bg-[#F7F7F8] bg-[url('../images/shape1.svg')] bg-left bg-no-repeat px-6 lg:px-[5.88rem] pb-12 lg:pb-[5.88rem] pt-12 lg:pt-[7rem]">
           <div className="flex items-center justify-center " data-aos="zoom-in">
             <div className="flex w-full max-w-[46rem] flex-col items-center justify-center gap-7">
@@ -182,11 +211,11 @@ const IndexPage: React.FC<PageProps> = () => {
               <div className="mt-12 flex w-full lg:items-center justify-between flex-col lg:flex-row">
                 <div className="flex items-center gap-2 w-full">
                   <img
-                    className="h-16 w-16 rounded-full"
-                    src="https://via.placeholder.com/64x64"
+                    className="h-16 w-16 rounded-full object-cover"
+                    src={highlight_course.coordenadorImageURL}
                   />
                   <div className="flex flex-col ml-4">
-                    <span className="font-display text-xl font-bold leading-7 text-slate-950 min-w-[10rem]">
+                    <span className="font-display text-xl font-bold leading-7 text-slate-950 min-w-[10rem] ">
                       {highlight_course.coordenadorName}
                     </span>
                     <span className="font-display text-lg font-normal leading-snug text-zinc-600">
@@ -220,7 +249,7 @@ const IndexPage: React.FC<PageProps> = () => {
                 </div>
               </div>
 
-              <div className="mt-12 inline-flex h-14 max-w-96 w-full items-center justify-center gap-2 rounded-full bg-indigo-600 px-6 py-4">
+              <div className="mt-12 inline-flex h-14 max-w-96 w-full items-center justify-center gap-2 rounded-full bg-indigo-600 px-6 py-4 hover:scale-105 transition-all duration-300 ease-in-out cursor-pointer">
                 <span className="font-display text-lg font-medium leading-relaxed text-white">
                   Saiba mais
                 </span>
@@ -229,8 +258,12 @@ const IndexPage: React.FC<PageProps> = () => {
           </div>
 
           {/* cursos */}
-
-          <div data-aos="zoom-in" id="cursos" className="max-w-full">
+          <div
+            data-aos="zoom-in"
+            id="cursos"
+            className="max-w-full"
+            ref={courseRef}
+          >
             <div className="mt-32 inline-flex h-16 w-full items-center justify-between">
               <span className="max-w-[32rem] font-title text-2xl lg:text-3xl font-bold leading-9 text-slate-950">
                 Descubra nossos Cursos de Saúde e Pesquisa para Avançar na sua
@@ -274,7 +307,6 @@ const IndexPage: React.FC<PageProps> = () => {
       </div>
 
       {/* Coordenadores */}
-
       <div className="flex justify-center ml-5" data-aos="zoom-in">
         <div className="mt-32 w-full max-w-[70.25rem]">
           <h1 className="w-full text-center font-title text-3xl font-semibold leading-9 text-slate-950 pr-5">
@@ -377,7 +409,10 @@ const IndexPage: React.FC<PageProps> = () => {
                 Potencialize seus conhecimentos e impulsione sua carreira.
               </div>
             </div>
-            <div className="flex items-center justify-end gap-[8px] rounded-[76px] bg-[#FEDAC2] px-10 py-3 lg:py-8 transition-all duration-300 ease-in-out hover:scale-105 hover:bg-[#FEDAC2]">
+            <div
+              className="flex items-center justify-end gap-[8px] rounded-[76px] bg-[#FEDAC2] px-10 py-3 lg:py-8 transition-all duration-300 ease-in-out hover:scale-105 hover:bg-[#FEDAC2] cursor-pointer"
+              onClick={handleCourse}
+            >
               <span className="text-base lg:text-xl font-medium uppercase text-primary_black">
                 Comece sua jornada
               </span>
