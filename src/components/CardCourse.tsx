@@ -1,5 +1,6 @@
 import { Link } from "gatsby";
 import React from "react";
+import { MdArrowOutward } from "react-icons/md";
 
 type CardCourseProps = {
   title: string;
@@ -24,6 +25,9 @@ export const CardCourse = ({
       className="relative mb-10 w-[309px] hover:scale-95 transition-all duration-300 ease-in-out cursor-pointer hover:opacity-90"
     >
       <div className="relative mb-10 w-[309px] hover:scale-95 transition-all duration-300 ease-in-out cursor-pointer hover:opacity-90">
+        <div className="absolute -right-1 top-10 flex h-10 w-10 -translate-x-1/2 -translate-y-1/2 transform items-center justify-center rounded-full bg-indigo-600 hover:scale-105 transition-all duration-300 ease-in-out">
+          <MdArrowOutward className="h-6 w-6 text-white" />
+        </div>
         <img
           src={imageURL}
           alt="cardImage"
