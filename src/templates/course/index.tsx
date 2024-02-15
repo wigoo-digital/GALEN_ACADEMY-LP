@@ -51,7 +51,7 @@ const CoursePage = ({ pageContext }: PageContext) => {
   const isMobile = width < 768;
   const [isMounted, setIsMounted] = React.useState(false);
   const [showMore, setShowMore] = React.useState(false);
-  const formRef = React.useRef<HTMLFormElement>(null);
+  const formRef = React.useRef<HTMLDivElement>(null);
   const configRelationCourse = {
     spaceBetween: 10,
     slidesPerView: 3,
@@ -147,7 +147,7 @@ const CoursePage = ({ pageContext }: PageContext) => {
                 {isMobile && isMounted && (
                   <div
                     className="bg-white max-h-[55rem] w-full lg:hidden right-0 lg:max-w-[466px] shadow-2xl lg:ml-auto rounded-xl mt-12"
-                    // ref={formRef}
+                    ref={formRef}
                   >
                     <div className="p-1">
                       <div className="w-full flex gap-y-3 items-center flex-col bg-neutral-100 px-10 py-6 text-center lg:text-start">
