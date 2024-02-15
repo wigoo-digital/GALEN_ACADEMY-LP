@@ -1,7 +1,10 @@
+import { courses } from "@data/courses";
+import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/24/solid";
 import { useMenu } from "@hooks/useMenu";
 import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import React from "react";
+import { Dropdown } from "rizzui";
 import { Hamburguer } from "src/icons/hamburgue";
 import { HamburguerX } from "src/icons/hamburgueX";
 import "../styles/header.css";
@@ -11,6 +14,13 @@ export const Header = () => {
   const { handleAbout, handleCourse, handlePostGraduation, handleHome } =
     useMenu();
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
+  const coursesFiltered = courses.filter(
+    (course) => course.type !== "Pós Graduação"
+  );
+  const postGraduation = courses.filter(
+    (course) => course.type === "Pós Graduação"
+  );
 
   return (
     <div
@@ -35,25 +45,65 @@ export const Header = () => {
           {isMenuOpen ? <HamburguerX /> : <Hamburguer />}L
         </div>
 
-        <div className="hidden lg:flex items-center justify-end gap-[16px]">
+        <div className="hidden lg:flex items-center justify-end gap-16">
           <span
             className="text-right text-[14px] font-medium uppercase text-white cursor-pointer hover:text-opacity-70 transition-all duration-300 ease-in-out"
             onClick={handleHome}
           >
             Home
           </span>
-          <span
-            className="text-right text-[14px] font-medium uppercase text-white cursor-pointer hover:text-opacity-70 transition-all duration-300 ease-in-out"
-            onClick={handlePostGraduation}
-          >
-            Pós-Graduação
-          </span>
-          <span
-            className="text-right text-[14px] font-medium uppercase text-white cursor-pointer hover:text-opacity-70 transition-all duration-300 ease-in-out"
-            onClick={handleCourse}
-          >
-            Cursos
-          </span>
+          <Dropdown placement="top">
+            <Dropdown.Trigger>
+              {/* @ts-ignore */}
+              {({ open }) => (
+                <span
+                  className="text-right text-[14px] font-medium uppercase text-white cursor-pointer hover:text-opacity-70 transition-all duration-300 ease-in-out flex gap-4"
+                  onClick={
+                    postGraduation.length > 0
+                      ? () => null
+                      : () => handlePostGraduation()
+                  }
+                >
+                  Pós-Graduação{" "}
+                  {open ? (
+                    <ChevronUpIcon className="w-5 h-5" />
+                  ) : (
+                    <ChevronDownIcon className="w-5 h-5" />
+                  )}
+                </span>
+              )}
+            </Dropdown.Trigger>
+            <Dropdown.Menu className="bg-[#000b28] text-white border-none overflow-scroll max-h-[300px]">
+              {postGraduation.map((course) => (
+                <Dropdown.Item className="hover:bg-slate-200 hover:bg-opacity-55">
+                  <Link to={`/course/${course.slug}`}>{course.title}</Link>
+                </Dropdown.Item>
+              ))}
+            </Dropdown.Menu>
+          </Dropdown>
+
+          <Dropdown placement="top">
+            <Dropdown.Trigger>
+              {/* @ts-ignore */}
+              {({ open }) => (
+                <span className="text-right text-[14px] font-medium uppercase text-white cursor-pointer hover:text-opacity-70 transition-all duration-300 ease-in-out flex gap-4">
+                  Cursos{" "}
+                  {open ? (
+                    <ChevronUpIcon className="w-5 h-5" />
+                  ) : (
+                    <ChevronDownIcon className="w-5 h-5" />
+                  )}
+                </span>
+              )}
+            </Dropdown.Trigger>
+            <Dropdown.Menu className="bg-[#000b28] text-white border-none overflow-scroll max-h-[300px]">
+              {coursesFiltered.map((course) => (
+                <Dropdown.Item className="hover:bg-slate-200 hover:bg-opacity-55">
+                  <Link to={`/course/${course.slug}`}>{course.title}</Link>
+                </Dropdown.Item>
+              ))}
+            </Dropdown.Menu>
+          </Dropdown>
           <div
             className="flex items-center justify-end gap-[8px] rounded-[76px] bg-[#FEDAC2] p-[12px] transition-all duration-300 ease-in-out hover:scale-105 hover:bg-[#FEDAC2] cursor-pointer"
             onClick={handleAbout}

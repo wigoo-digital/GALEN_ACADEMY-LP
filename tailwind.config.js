@@ -2,7 +2,8 @@
 module.exports = {
   content: [
     `./src/pages/**/*.{js,jsx,ts,tsx}`,
-    `./src/components/**/*.{js,jsx,ts,tsx}`
+    `./src/components/**/*.{js,jsx,ts,tsx}`,
+    "./node_modules/rizzui/dist/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     animatedSettings: {
@@ -12,15 +13,15 @@ module.exports = {
       bounceInSpeed: 750,
       bounceOutSpeed: 750,
       animationDelaySpeed: 500,
-      classes: ["bounce", "heartBeat"]
+      classes: ["bounce", "heartBeat"],
     },
     extend: {
       fontFamily: {
         display: "Space Grotesk",
-        title: "Roc Grotesk"
+        title: "Roc Grotesk",
       },
       maxWidth: {
-        "8xl": "1440px"
+        "8xl": "1440px",
       },
       colors: {
         neutral: {
@@ -28,14 +29,14 @@ module.exports = {
           100: "#EEEEF0",
           200: "#D8D8DF",
           500: "#727485",
-          700: "#4B4C59"
+          700: "#4B4C59",
         },
         crimson: "#FF3264",
         primary_black: "#000B28",
         primary_blue: "#4242FF",
-        primary_secondary: "#FEDAC2"
-      }
-    }
+        primary_secondary: "#FEDAC2",
+      },
+    },
   },
-  plugins: [require("tailwind-animatecss")]
+  plugins: [require("tailwind-animatecss"), require("@tailwindcss/forms")],
 };
