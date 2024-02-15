@@ -124,22 +124,23 @@ const CoursePage = ({ pageContext }: PageContext) => {
                       {course?.title}
                     </h1>
                   </div>
-
-                  <div className="bg-white shadow-xl rounded-lg flex flex-col py-5 gap-y-2 items-center">
-                    <span className="text-[1rem] font-medium text-primary_black">
-                      Parceiros do Curso
-                    </span>
-                    <div className="grid grid-cols-2 gap-x-3 mt-3 px-5 sm:px-0">
-                      {course?.partners?.map((partner, index) => (
-                        <img
-                          src={partner}
-                          alt="partner"
-                          className="max-w-40 h-20 object-cover object-center"
-                          key={index}
-                        />
-                      ))}
+                  {!!course?.partners?.length && (
+                    <div className="bg-white shadow-xl rounded-lg flex flex-col py-5 gap-y-2 items-center">
+                      <span className="text-[1rem] font-medium text-primary_black">
+                        Parceiros do Curso
+                      </span>
+                      <div className="grid grid-cols-2 gap-x-3 mt-3 px-5 sm:px-0">
+                        {course?.partners?.map((partner, index) => (
+                          <img
+                            src={partner}
+                            alt="partner"
+                            className="max-w-40 h-20 object-cover object-center"
+                            key={index}
+                          />
+                        ))}
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </div>
 
                 {/*  FORMULARIO */}
@@ -304,205 +305,227 @@ const CoursePage = ({ pageContext }: PageContext) => {
                 </div>
 
                 {/* Principais benefícios */}
-                <span className="text-3xl mt-20 mb-5 font-bold text-neutral-950">
-                  Principais benefícios
-                </span>
+                {!!course?.benefits?.length && (
+                  <>
+                    <span className="text-3xl mt-20 mb-5 font-bold text-neutral-950">
+                      Principais benefícios
+                    </span>
 
-                <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-5">
-                  {course?.benefits?.map((benefit, index) => (
-                    <CardBenefit
-                      title={benefit.title}
-                      description={benefit.description}
-                      iconUrl={benefit.iconUrl}
-                      key={index}
-                    />
-                  ))}
-                </div>
-
-                {/* Grade Currícular */}
-                <span className="text-3xl mt-20 mb-5 font-bold text-neutral-950">
-                  Grade Currícular
-                </span>
-                <Accordion allowToggle>
-                  {course?.modules?.map((module, index) => (
-                    <AccordionItem key={index}>
-                      {({ isExpanded }) => (
-                        <>
-                          <AccordionButton
-                            className={
-                              isExpanded
-                                ? "border-t-2 border-primary_blue py-5"
-                                : "border-t-2 border-neutral-100 py-5"
-                            }
-                          >
-                            <Flex
-                              direction={"row"}
-                              alignItems={"center"}
-                              columnGap={15}
-                              as="span"
-                              flex="1"
-                              textAlign="left"
-                            >
-                              <img
-                                width={30}
-                                height={30}
-                                src={module.imageURl}
-                                alt={module.title}
-                              />
-                              <span
-                                className={
-                                  isExpanded
-                                    ? "text-primary_blue text-lg font-medium"
-                                    : "text-primary_black text-lg font-medium"
-                                }
-                              >
-                                {module.title}
-                              </span>
-                            </Flex>
-                            <AccordionIcon />
-                          </AccordionButton>
-
-                          <AccordionPanel
-                            className="mb-5"
-                            pb={4}
-                            overflow="scroll"
-                          >
-                            <div className="w-[553px] h-[127px] pl-[72px] flex-col justify-start items-start gap-4 inline-flex">
-                              <div className="justify-start items-end gap-3 inline-flex">
-                                <div className="text-neutral-900 text-base font-normal font-title">
-                                  {module.subTitle}
-                                </div>
-                                <div className="text-slate-500 text-base font-medium font-display">
-                                  -
-                                </div>
-                                <div className="justify-start items-end gap-2 flex">
-                                  <div className="text-zinc-400 text-base font-normal font-display">
-                                    {module?.subModules?.length} aulas
-                                  </div>
-                                  <div className="text-zinc-400 text-sm font-normal font-display">
-                                    •
-                                  </div>
-                                  <div className="text-zinc-400 text-base font-normal font-display">
-                                    {module?.duration}
-                                  </div>
-                                </div>
-                              </div>
-                              <div className="w-[357px] h-[0px] border border-neutral-100"></div>
-                              <div className="self-stretch h-[72px] flex-col justify-start items-start gap-2 flex">
-                                {module?.subModules?.map((subModule, index) => (
-                                  <div
-                                    className="self-stretch justify-start items-center gap-2 inline-flex"
-                                    key={index}
-                                  >
-                                    {" "}
-                                    <div className="text-zinc-400 text-lg font-normal font-['Inter'] leading-loose">
-                                      {module?.id}.{subModule.id}
-                                    </div>
-                                    <div className="text-zinc-700 text-lg font-normal font-display leading-loose">
-                                      {subModule.title}
-                                    </div>
-                                    <div className="text-zinc-400 text-sm font-normal font-display">
-                                      •
-                                    </div>
-                                    <div className="text-zinc-400 text-lg font-normal font-['Inter'] leading-loose">
-                                      {subModule.duration}
-                                    </div>
-                                  </div>
-                                ))}
-                              </div>
-                            </div>
-                          </AccordionPanel>
-                        </>
-                      )}
-                    </AccordionItem>
-                  ))}
-                </Accordion>
-
-                <span className="text-3xl mt-20 mb-5 font-bold text-neutral-950">
-                  Nossa Equipe
-                </span>
-
-                <OurTeam
-                  doctors={course?.ourTeam}
-                  breakpoint={{
-                    320: {
-                      slidesPerView: 1.2,
-                      spaceBetween: 10,
-                    },
-                    768: {
-                      slidesPerView: 2.4,
-                      spaceBetween: 40,
-                    },
-                    1024: {
-                      slidesPerView: 2.6,
-                      spaceBetween: 32,
-                    },
-                  }}
-                />
-
-                <span className="text-3xl mt-20 mb-5 font-bold text-neutral-950">
-                  Cursos Relacionados
-                </span>
-
-                <div className="w-full ">
-                  <Swiper {...configRelationCourse}>
-                    {course?.relatedCourses?.map((doctor, index) => (
-                      <SwiperSlide key={index}>
-                        <RelationCourse
-                          category={doctor.category}
-                          title={doctor.title}
-                          type={doctor.type}
-                          modality={doctor.modality}
-                          investment={doctor.investment}
-                          duration={doctor.duration}
-                          coordinator={doctor.coordinator}
+                    <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-5">
+                      {course?.benefits?.map((benefit, index) => (
+                        <CardBenefit
+                          title={benefit.title}
+                          description={benefit.description}
+                          iconUrl={benefit.iconUrl}
                           key={index}
                         />
-                      </SwiperSlide>
-                    ))}
-                  </Swiper>
-                </div>
+                      ))}
+                    </div>
+                  </>
+                )}
 
-                <span className="text-3xl mt-20 mb-5 font-bold text-neutral-950">
-                  Perguntas Frequentes
-                </span>
+                {/* Grade Currícular */}
+                {!!course?.modules?.length && (
+                  <>
+                    <span className="text-3xl mt-20 mb-5 font-bold text-neutral-950">
+                      Grade Currícular
+                    </span>
+                    <Accordion allowToggle>
+                      {course?.modules?.map((module, index) => (
+                        <AccordionItem key={index}>
+                          {({ isExpanded }) => (
+                            <>
+                              <AccordionButton
+                                className={
+                                  isExpanded
+                                    ? "border-t-2 border-primary_blue py-5"
+                                    : "border-t-2 border-neutral-100 py-5"
+                                }
+                              >
+                                <Flex
+                                  direction={"row"}
+                                  alignItems={"center"}
+                                  columnGap={15}
+                                  as="span"
+                                  flex="1"
+                                  textAlign="left"
+                                >
+                                  <img
+                                    width={30}
+                                    height={30}
+                                    src={module.imageURl}
+                                    alt={module.title}
+                                  />
+                                  <span
+                                    className={
+                                      isExpanded
+                                        ? "text-primary_blue text-lg font-medium"
+                                        : "text-primary_black text-lg font-medium"
+                                    }
+                                  >
+                                    {module.title}
+                                  </span>
+                                </Flex>
+                                <AccordionIcon />
+                              </AccordionButton>
 
-                <Accordion allowToggle>
-                  {course?.commonQuetions?.map((question, index) => (
-                    <AccordionItem key={index}>
-                      {({ isExpanded }) => (
-                        <>
-                          <AccordionButton
-                            className={
-                              isExpanded
-                                ? "border-t-2 border-primary_blue py-5"
-                                : "border-t-2 border-neutral-100 py-5"
-                            }
-                          >
-                            <Flex
-                              direction={"row"}
-                              alignItems={"center"}
-                              columnGap={15}
-                              as="span"
-                              flex="1"
-                              textAlign="left"
-                            >
-                              <QuestionMarkCircleIcon className="h-6 w-6 text-primary_blue" />
-                              <span className="text-primary_blue text-lg font-medium">
-                                {question.question}
-                              </span>
-                            </Flex>
-                            <AccordionIcon />
-                          </AccordionButton>
+                              <AccordionPanel
+                                className="mb-5"
+                                pb={4}
+                                overflow="scroll"
+                              >
+                                <div className="w-[553px] h-[127px] pl-[72px] flex-col justify-start items-start gap-4 inline-flex">
+                                  <div className="justify-start items-end gap-3 inline-flex">
+                                    <div className="text-neutral-900 text-base font-normal font-title">
+                                      {module.subTitle}
+                                    </div>
+                                    <div className="text-slate-500 text-base font-medium font-display">
+                                      -
+                                    </div>
+                                    <div className="justify-start items-end gap-2 flex">
+                                      <div className="text-zinc-400 text-base font-normal font-display">
+                                        {module?.subModules?.length} aulas
+                                      </div>
+                                      <div className="text-zinc-400 text-sm font-normal font-display">
+                                        •
+                                      </div>
+                                      <div className="text-zinc-400 text-base font-normal font-display">
+                                        {module?.duration}
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className="w-[357px] h-[0px] border border-neutral-100"></div>
+                                  <div className="self-stretch h-[72px] flex-col justify-start items-start gap-2 flex">
+                                    {module?.subModules?.map(
+                                      (subModule, index) => (
+                                        <div
+                                          className="self-stretch justify-start items-center gap-2 inline-flex"
+                                          key={index}
+                                        >
+                                          {" "}
+                                          <div className="text-zinc-400 text-lg font-normal font-['Inter'] leading-loose">
+                                            {module?.id}.{subModule.id}
+                                          </div>
+                                          <div className="text-zinc-700 text-lg font-normal font-display leading-loose">
+                                            {subModule.title}
+                                          </div>
+                                          <div className="text-zinc-400 text-sm font-normal font-display">
+                                            •
+                                          </div>
+                                          <div className="text-zinc-400 text-lg font-normal font-['Inter'] leading-loose">
+                                            {subModule.duration}
+                                          </div>
+                                        </div>
+                                      )
+                                    )}
+                                  </div>
+                                </div>
+                              </AccordionPanel>
+                            </>
+                          )}
+                        </AccordionItem>
+                      ))}
+                    </Accordion>
+                  </>
+                )}
 
-                          <AccordionPanel className="mb-5" pb={4}>
-                            {question.answer}
-                          </AccordionPanel>
-                        </>
-                      )}
-                    </AccordionItem>
-                  ))}
-                </Accordion>
+                {!!course.ourTeam?.length && (
+                  <>
+                    <span className="text-3xl mt-20 mb-5 font-bold text-neutral-950">
+                      Nossa Equipe
+                    </span>
+
+                    <OurTeam
+                      doctors={course?.ourTeam}
+                      breakpoint={{
+                        320: {
+                          slidesPerView: 1.2,
+                          spaceBetween: 10,
+                        },
+                        768: {
+                          slidesPerView: 2.4,
+                          spaceBetween: 40,
+                        },
+                        1024: {
+                          slidesPerView: 2.6,
+                          spaceBetween: 32,
+                        },
+                      }}
+                    />
+                  </>
+                )}
+
+                {!!course?.relatedCourses?.length && (
+                  <>
+                    <span className="text-3xl mt-20 mb-5 font-bold text-neutral-950">
+                      Cursos Relacionados
+                    </span>
+
+                    <div className="w-full ">
+                      <Swiper {...configRelationCourse}>
+                        {course?.relatedCourses?.map((doctor, index) => (
+                          <SwiperSlide key={index}>
+                            <RelationCourse
+                              category={doctor.category}
+                              title={doctor.title}
+                              type={doctor.type}
+                              modality={doctor.modality}
+                              investment={doctor.investment}
+                              duration={doctor.duration}
+                              coordinator={doctor.coordinator}
+                              key={index}
+                            />
+                          </SwiperSlide>
+                        ))}
+                      </Swiper>
+                    </div>
+                  </>
+                )}
+
+                {!!course?.commonQuetions?.length && (
+                  <>
+                    <span className="text-3xl mt-20 mb-5 font-bold text-neutral-950">
+                      Perguntas Frequentes
+                    </span>
+
+                    <Accordion allowToggle>
+                      {course?.commonQuetions?.map((question, index) => (
+                        <AccordionItem key={index}>
+                          {({ isExpanded }) => (
+                            <>
+                              <AccordionButton
+                                className={
+                                  isExpanded
+                                    ? "border-t-2 border-primary_blue py-5"
+                                    : "border-t-2 border-neutral-100 py-5"
+                                }
+                              >
+                                <Flex
+                                  direction={"row"}
+                                  alignItems={"center"}
+                                  columnGap={15}
+                                  as="span"
+                                  flex="1"
+                                  textAlign="left"
+                                >
+                                  <QuestionMarkCircleIcon className="h-6 w-6 text-primary_blue" />
+                                  <span className="text-primary_blue text-lg font-medium">
+                                    {question.question}
+                                  </span>
+                                </Flex>
+                                <AccordionIcon />
+                              </AccordionButton>
+
+                              <AccordionPanel className="mb-5" pb={4}>
+                                {question.answer}
+                              </AccordionPanel>
+                            </>
+                          )}
+                        </AccordionItem>
+                      ))}
+                    </Accordion>
+                  </>
+                )}
               </div>
 
               {/* FORMULÁRIO DIREITA */}

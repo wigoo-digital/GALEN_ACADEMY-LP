@@ -1,4 +1,5 @@
 import { useMenu } from "@hooks/useMenu";
+import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import React from "react";
 import { Hamburguer } from "src/icons/hamburgue";
@@ -17,19 +18,21 @@ export const Header = () => {
       data-aos="fade-in"
     >
       <div className="flex h-[104px] w-full max-w-8xl flex-shrink-0 items-center justify-between py-[32px] px-6">
-        <div className="hidden lg:block">
-          <StaticImage src="../images/logo.svg" alt="logo" />
-        </div>
+        <Link to="/">
+          <div className="hidden lg:block">
+            <StaticImage src="../images/logo.svg" alt="logo" />
+          </div>
 
-        <div className="lg:hidden">
-          <StaticImage src="../images/logoIcon.svg" alt="logo" />
-        </div>
+          <div className="lg:hidden">
+            <StaticImage src="../images/logoIcon.svg" alt="logo" />
+          </div>
+        </Link>
 
         <div
           className="lg:hidden"
           onClick={() => setIsMenuOpen((prev) => !prev)}
         >
-          {isMenuOpen ? <HamburguerX /> : <Hamburguer />}
+          {isMenuOpen ? <HamburguerX /> : <Hamburguer />}L
         </div>
 
         <div className="hidden lg:flex items-center justify-end gap-[16px]">
