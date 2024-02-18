@@ -181,10 +181,13 @@ const IndexPage: React.FC<PageProps> = () => {
             Transformando a Saúde através da Educação, Uma Mente de Cada Vez
           </h1>
           <p className="max-w-[40rem] font-display text-base font-normal leading-relaxed text-zinc-700">
-            Nossa equipe de especialistas traz décadas de experiência clínica e
-            acadêmica. Fundamos a Galen Academy para resolver os desafios da
-            educação em saúde que nós mesmos enfrentamos. Em verdade, é a
-            solução que sempre desejamos oferecer aos profissionais da saúde.
+            Uma plataforma de conhecimento em educação em saúde e áreas afins
+            que oferece conteúdo respaldado pela expertise internacional dos
+            melhores profissionais, combinando credibilidade científica e
+            inovação. Nosso compromisso é promover a democratização do
+            conhecimento em saúde, visando impactar positivamente e aprimorar a
+            qualidade de vida dos pacientes, seguindo as práticas mais avançadas
+            no cuidado médico.
           </p>
         </div>
       </div>
@@ -210,16 +213,25 @@ const IndexPage: React.FC<PageProps> = () => {
 
               <div className="mt-12 flex w-full lg:items-center justify-between flex-col lg:flex-row">
                 <div className="flex items-center gap-2 w-full">
-                  <img
+                  {/* <img
                     className="h-16 w-16 rounded-full object-cover"
                     src={highlight_course.coordenadorImageURL}
-                  />
+                  /> */}
                   <div className="flex flex-col ml-4">
-                    <span className="font-display text-xl font-bold leading-7 text-slate-950 min-w-[10rem] ">
+                    {/* <span className="font-display text-xl font-bold leading-7 text-slate-950 min-w-[10rem] ">
                       {highlight_course.coordenadorName}
                     </span>
                     <span className="font-display text-lg font-normal leading-snug text-zinc-600">
                       {highlight_course.coordenadorDescription}
+                    </span> */}
+                    <span className="font-display text-xl font-bold leading-7 text-slate-950 min-w-[10rem] ">
+                      Prof. Dr. João Pedro Dutra
+                    </span>
+                    <span className="font-display text-xl font-bold leading-7 text-slate-950 min-w-[10rem] ">
+                      Prof. Dr. Renato Delascio Lopes
+                    </span>
+                    <span className="font-display text-xl font-bold leading-7 text-slate-950 min-w-[10rem] ">
+                      Prof. Dr. Pedro Barros
                     </span>
                   </div>
                 </div>
@@ -232,7 +244,7 @@ const IndexPage: React.FC<PageProps> = () => {
                       {highlight_course.price}
                     </span>
                     <span className="font-display text-lg font-normal leading-snug text-zinc-600">
-                      Valor à vista
+                      em até 24x
                     </span>
                   </div>
 
@@ -345,7 +357,7 @@ const IndexPage: React.FC<PageProps> = () => {
                   </div> */}
                   <Icon />
                   <div className="text-center font-title text-xl font-semibold leading-7 text-slate-950 lg:text-left">
-                    {title}I
+                    {title}
                   </div>
                   <div className="line-clamp-3 lg:max-w-[14rem] self-stretch font-display text-base font-normal leading-relaxed text-zinc-700 text-center lg:text-left">
                     {description}

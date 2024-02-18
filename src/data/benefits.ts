@@ -27,7 +27,7 @@ export const Benefits = [
   {
     title: "Associado ao BCRI",
     description:
-      "Um dos maiores institutos de Pesquisa Clínica do Brasil, responsável pela condução....",
+      "Instituição de Pesquisa Clínica responsável pela condução de +800 estudos.",
     Icon: PersonIcon,
   },
   {
@@ -38,14 +38,12 @@ export const Benefits = [
   },
   {
     title: "Galen Hub",
-    description:
-      "Comunidade com atividades mensais exclusivas para os alunos, com a participação de especialistas e discussões de temas relevantes",
+    description: "Comunidade com atividades mensais exclusivas para os alunos.",
     Icon: ForumIcon,
   },
   {
     title: "Parceria com a Mount Sinai",
-    description:
-      "Os cursos de Cardiologia foram desenvolvidos em conjunto com uma das cinco principais instituições de medicina do mundo.",
+    description: "Um dos 5 principais centros de cardiologia do mundo.",
     Icon: HandShakeIcon,
   },
 ];

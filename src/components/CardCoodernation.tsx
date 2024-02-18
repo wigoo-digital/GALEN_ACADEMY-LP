@@ -33,7 +33,7 @@ export const CardCoodernation: React.FC<CardCoodernationProps> = ({
           <div className="font-display text-xl font-medium leading-normal text-white">
             {name}
           </div>
-          <div className="font-display text-base font-normal leading-tight text-gray-300">
+          <div className="font-display text-base font-normal leading-tight text-gray-300 line-clamp-2">
             {type}
           </div>
         </div>

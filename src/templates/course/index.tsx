@@ -14,15 +14,13 @@ import {
 import { CardBenefit } from "@components/CardBenefit";
 import { OurTeam } from "@components/OurTeam";
 import { RDFormComponent } from "@components/RDFormComponent";
-import { RelationCourse } from "@components/RelationCourse";
 import { courses } from "@data/courses";
 import {
   ChevronRightIcon,
   QuestionMarkCircleIcon,
-  StarIcon,
 } from "@heroicons/react/24/solid";
 import useWindowSize from "@hooks/useWindowSize";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { StaticImage } from "gatsby-plugin-image";
 import "./styles.css";
 
 type PageContext = {
@@ -31,19 +29,19 @@ type PageContext = {
   };
 };
 
-const Rating = ({ rating, qtd }: { rating: number; qtd: string }) => {
-  return (
-    <div className="text-white flex flex-row align-center gap-x-1">
-      {[...Array(5)].map((_, i) => (
-        <StarIcon
-          key={i}
-          className={`h-5 w-5 ${rating > i ? "" : "opacity-50"}`}
-        />
-      ))}
-      <span className="text-sm">{qtd} Avaliações</span>
-    </div>
-  );
-};
+// const Rating = ({ rating, qtd }: { rating: number; qtd: string }) => {
+//   return (
+//     <div className="text-white flex flex-row align-center gap-x-1">
+//       {[...Array(5)].map((_, i) => (
+//         <StarIcon
+//           key={i}
+//           className={`h-5 w-5 ${rating > i ? "" : "opacity-50"}`}
+//         />
+//       ))}
+//       <span className="text-sm">{qtd} Avaliações</span>
+//     </div>
+//   );
+// };
 
 const CoursePage = ({ pageContext }: PageContext) => {
   const { course } = pageContext;
@@ -105,7 +103,7 @@ const CoursePage = ({ pageContext }: PageContext) => {
               {/* CONTEÚDO ESQUERDO ./*/}
               <div className="order-last xl:order-first flex flex-col gap-y-3 h-full py-10">
                 <div className="flex flex-col gap-y-3">
-                  <Rating rating={4} qtd={"1.400"} />
+                  {/* <Rating rating={4} qtd={"1.400"} /> */}
 
                   <div className="flex flex-row text-white">
                     <div className="bg-[#ffffff30] text-sm flex gap-x-5 px-5 py-2 rounded-full items-center">
@@ -129,15 +127,15 @@ const CoursePage = ({ pageContext }: PageContext) => {
                       <span className="text-[1rem] font-medium text-primary_black">
                         Parceiros do Curso
                       </span>
-                      <div className="grid grid-cols-2 gap-x-3 mt-3 px-5 sm:px-0">
-                        {course?.partners?.map((partner, index) => (
-                          <img
-                            src={partner}
-                            alt="partner"
-                            className="max-w-40 h-20 object-cover object-center"
-                            key={index}
-                          />
-                        ))}
+                      <div className="gap-x-3 mt-3 px-5 sm:px-0 items-center justify-center flex">
+                        {/* {course?.partners?.map((partner, index) => ( */}
+                        <StaticImage
+                          src="../../images/partner.svg"
+                          alt="partner"
+                          className="object-cover object-center"
+                          // key={index}
+                        />
+                        {/* ))} */}
                       </div>
                     </div>
                   )}
@@ -152,34 +150,36 @@ const CoursePage = ({ pageContext }: PageContext) => {
                     <div className="p-1">
                       <div className="w-full flex gap-y-3 items-center flex-col bg-neutral-100 px-10 py-6 text-center lg:text-start">
                         <span className="text-sm font-[500] text-neutral-700 [&>strong]:text-xl [&>strong]:text-neutral-950">
-                          <strong>
-                            {Intl.NumberFormat("pt-BR", {
-                              style: "currency",
-                              currency: "BRL",
-                            }).format(950)}
-                          </strong>{" "}
-                          no cartão ou{" "}
-                          <strong>
-                            {Intl.NumberFormat("pt-BR", {
-                              style: "currency",
-                              currency: "BRL",
-                            }).format(850)}
-                          </strong>{" "}
-                          no pix à vista
+                          {/* <strong>
+                          {Intl.NumberFormat("pt-BR", {
+                            style: "currency",
+                            currency: "BRL",
+                          }).format(950)}
+                        </strong>{" "}
+                        no cartão ou{" "}
+                        <strong>
+                          {Intl.NumberFormat("pt-BR", {
+                            style: "currency",
+                            currency: "BRL",
+                          }).format(850)}
+                        </strong>{" "}
+                        no pix à vista
+                      </span> */}
+                          {course?.investimentInForm}
                         </span>
                         <span className="rounded-full font-bold bg-crimson px-3 py-1 w-fit text-white text-[0.75rem]">
-                          {course?.discount} de desconto
+                          {course?.discount}
                         </span>
                       </div>
-                      <div className="flex flex-col px-10 py-3">
+                      <div className="flex flex-col px-5 py-3">
                         <span className="text-2xl mb-3 font-bold text-primary_black">
-                          Preencha seus dados
+                          Fale com o nosso time comercial.
                         </span>
 
                         <span className="text-sm font-normal text-neutral-600">
                           Complete com seus dados para garantir sua vaga na
-                          formação de{" "}
-                          <strong>Capacitação em Leitura Cientiífica</strong>
+                          formação.
+                          {/* <strong>Capacitação em Leitura Cientiífica</strong> */}
                         </span>
                       </div>
                       <RDFormComponent id="formulario-boas-praticas-de-telemedicina-e-telessaude-c36089f42acbc712df59" />
@@ -207,8 +207,13 @@ const CoursePage = ({ pageContext }: PageContext) => {
                     <span className="text-primary_blue font-medium text-lg">
                       Modalidade
                     </span>
-                    <p className="font-[1rem] text-neutral-800">
-                      {course?.modality}
+                    <p
+                      className="font-[1rem] text-neutral-800"
+                      dangerouslySetInnerHTML={{
+                        __html: course?.modality,
+                      }}
+                    >
+                      {/* {course?.modality} */}
                     </p>
                   </div>
                 </div>
@@ -455,7 +460,7 @@ const CoursePage = ({ pageContext }: PageContext) => {
                   </>
                 )}
 
-                {!!course?.relatedCourses?.length && (
+                {/* {!!course?.relatedCourses?.length && (
                   <>
                     <span className="text-3xl mt-20 mb-5 font-bold text-neutral-950">
                       Cursos Relacionados
@@ -480,7 +485,7 @@ const CoursePage = ({ pageContext }: PageContext) => {
                       </Swiper>
                     </div>
                   </>
-                )}
+                )} */}
 
                 {!!course?.commonQuetions?.length && (
                   <>
@@ -508,7 +513,9 @@ const CoursePage = ({ pageContext }: PageContext) => {
                                   flex="1"
                                   textAlign="left"
                                 >
-                                  <QuestionMarkCircleIcon className="h-6 w-6 text-primary_blue" />
+                                  <div className="h-6 w-6">
+                                    <QuestionMarkCircleIcon className="text-primary_blue w-6 h-6" />
+                                  </div>
                                   <span className="text-primary_blue text-lg font-medium">
                                     {question.question}
                                   </span>
@@ -534,7 +541,7 @@ const CoursePage = ({ pageContext }: PageContext) => {
                   <div className="p-1">
                     <div className="w-full flex gap-y-3 items-center flex-col bg-neutral-100 px-10 py-6 text-center lg:text-start">
                       <span className="text-sm font-[500] text-neutral-700 [&>strong]:text-xl [&>strong]:text-neutral-950">
-                        <strong>
+                        {/* <strong>
                           {Intl.NumberFormat("pt-BR", {
                             style: "currency",
                             currency: "BRL",
@@ -548,20 +555,22 @@ const CoursePage = ({ pageContext }: PageContext) => {
                           }).format(850)}
                         </strong>{" "}
                         no pix à vista
+                      </span> */}
+                        {course?.investimentInForm}
                       </span>
                       <span className="rounded-full font-bold bg-crimson px-3 py-1 w-fit text-white text-[0.75rem]">
-                        {course?.discount} de desconto
+                        {course?.discount}
                       </span>
                     </div>
-                    <div className="flex flex-col px-10 py-3">
+                    <div className="flex flex-col px-5 py-3">
                       <span className="text-2xl mb-3 font-bold text-primary_black">
-                        Preencha seus dados
+                        Fale com o nosso time comercial.
                       </span>
 
                       <span className="text-sm font-normal text-neutral-600">
                         Complete com seus dados para garantir sua vaga na
-                        formação de{" "}
-                        <strong>Capacitação em Leitura Cientiífica</strong>
+                        formação.
+                        {/* <strong>Capacitação em Leitura Cientiífica</strong> */}
                       </span>
                     </div>
                     <RDFormComponent id="formulario-boas-praticas-de-telemedicina-e-telessaude-c36089f42acbc712df59" />
