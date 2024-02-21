@@ -121,9 +121,19 @@ export const courses = [
     modality:
       "Em nossa modalidade de ensino, oferecemos aulas gravadas que podem ser acessadas em nossa plataforma on-demand, proporcionando flexibilidade para que você assista quando e onde quiser. Além disso, para promover interação e atualização regular, realizamos encontros ao vivo, que ocorrem uma vez por mês, de forma on-line ao final dos módulos.",
     coordinator: [
-      "Profa. Lilian Mazza",
-      "Profa. Ligia Nasi Laranjeira",
-      "Prof. Dr. Pedro Barros",
+      {
+        name: "Profa. Lilian Mazza",
+        education: "Diretora de Operações do BCRI/Galen Academy",
+      },
+      {
+        name: "Profa. Ligia Nasi Laranjeira",
+        education: "Gerente do Instituto de Pesquisa do Hcor",
+      },
+      {
+        name: "Prof. Dr. Pedro Barros",
+        education:
+          "Master of Health Sciences in Clinical Research by Duke University e Academic Chief Medical Officer BCRI/Galen Academy/MDHealth",
+      },
     ],
     duration: "40 horas",
     aboutCourse: `O curso "Operações em Pesquisa Clínica" oferece uma formação abrangente para aqueles que buscam ingressar na área ou aprimorar seus conhecimentos. Com foco na compreensão detalhada da parte operacional da pesquisa clínica, o curso prepara os participantes para atuarem em diversas esferas desse campo multidisciplinar.
@@ -602,9 +612,21 @@ export const courses = [
       Terças-feiras, às 18:00 - aulas ao vivo (online) com duração de 4 horas, realizadas uma vez por mês.
       `,
     coordinator: [
-      "Prof. Dr. Renato Delascio Lopes",
-      "Prof. Dr. Pedro Barros",
-      "Prof. Dr. João Pedro Dutra",
+      {
+        name: "Prof. Dr. Renato Delascio Lopes",
+        education:
+          "Faculty Founder do BCRI/Galen Academy e Professor do Departamento de Medicina da Duke University/EUA",
+      },
+      {
+        name: "Prof. Dr. Pedro Barros",
+        education:
+          "Master of Health Sciences in Clinical Research by Duke University e Academic Chief Medical Officer BCRI/Galen Academy/MDHealth",
+      },
+      {
+        name: "Prof. Dr. João Pedro Dutra",
+        education:
+          "Certificação em Cardio-oncologia pela International Cardio-oncology Society (IC-OS), Pós graduado em Cardio-oncologia pela Galen/BCRI/UNIFENAS, Master em Cardio-Onco-Hematologia pela SEIC/Universidade Vitoria de Madrid, Cardiologista/Ecocardiografista do Hospital Cepon e  SOS Cárdio - Florianópolis/SC",
+      },
     ],
     duration: "360 horas",
     aboutCourse:
@@ -1585,9 +1607,19 @@ export const courses = [
     modality:
       "Em nossa modalidade de ensino, oferecemos aulas gravadas que podem ser acessadas em nossa plataforma on-demand, proporcionando flexibilidade para que você assista quando e onde quiser. Além disso, para promover interação e atualização regular, realizamos encontros ao vivo, que ocorrem uma vez por mês, de forma on-line ao final dos módulos.",
     coordinator: [
-      "Profa. Amanda Risnik Ruiz",
-      "Profa. Daniela Caputo Dorta",
-      "Prof. Dr. Pedro Barros",
+      {
+        name: "Profa. Amanda Risnik Ruiz",
+        education: "Gerente da Garantia da Qualidade do BCRI",
+      },
+      {
+        name: "Profa. Daniela Caputo Dorta",
+        education: "Mestre em Medicina Investigativa e CEO Dorta & Cia SMO",
+      },
+      {
+        name: "Prof. Dr. Pedro Barros",
+        education:
+          "Master of Health Sciences in Clinical Research by Duke University e Chief Medical Officer BCRI/Galen Academy/MDHealth",
+      },
     ],
     duration: "40 horas",
     aboutCourse:

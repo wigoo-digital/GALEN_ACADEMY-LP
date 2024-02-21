@@ -3,50 +3,50 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Roc Grotesk';
+  font-family: "Roc Grotesk";
   font-style: normal;
   font-weight: 100;
-  src: url('/fonts/RocGrotesk_Thin.otf') format('opentype');
+  src: url("/fonts/RocGrotesk_Thin.otf") format("opentype");
 }
 
 @font-face {
-  font-family: 'Roc Grotesk';
+  font-family: "Roc Grotesk";
   font-style: normal;
   font-weight: 200;
-  src: url('/fonts/RocGrotesk_ExtraLight.otf') format('opentype');
+  src: url("/fonts/RocGrotesk_ExtraLight.otf") format("opentype");
 }
 
 @font-face {
-  font-family: 'Roc Grotesk';
+  font-family: "Roc Grotesk";
   font-style: normal;
   font-weight: 300;
-  src: url('/fonts/RocGrotesk_Light.otf') format('opentype');
+  src: url("/fonts/RocGrotesk_Light.otf") format("opentype");
 }
 
 @font-face {
-  font-family: 'Roc Grotesk';
+  font-family: "Roc Grotesk";
   font-style: normal;
   font-weight: 400;
-  src: url('/fonts/RocGrotesk_Regular.otf') format('opentype');
+  src: url("/fonts/RocGrotesk_Regular.otf") format("opentype");
 }
 
 @font-face {
-  font-family: 'Roc Grotesk';
+  font-family: "Roc Grotesk";
   font-style: normal;
   font-weight: 500;
-  src: url('/fonts/RocGrotesk_Medium.otf') format('opentype');
+  src: url("/fonts/RocGrotesk_Medium.otf") format("opentype");
 }
 
 @font-face {
-  font-family: 'Roc Grotesk';
+  font-family: "Roc Grotesk";
   font-style: normal;
   font-weight: 700;
-  src: url('/fonts/RocGrotesk_Bold.otf') format('opentype');
+  src: url("/fonts/RocGrotesk_Bold.otf") format("opentype");
 }
 
 @font-face {
-  font-family: 'Roc Grotesk';
+  font-family: "Roc Grotesk";
   font-style: normal;
   font-weight: 800;
-  src: url('/fonts/RocGrotesk_ExtraBold.otf') format('opentype');
+  src: url("/fonts/RocGrotesk_ExtraBold.otf") format("opentype");
 }

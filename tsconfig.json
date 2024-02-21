@@ -9,7 +9,7 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
       "@components/*": ["src/components/*"],
       "@hooks/*": ["src/hooks/*"],
@@ -17,7 +17,8 @@
       "@libs/*": ["src/lib/*"],
       "@types/*": ["src/types/*"],
       "@images/*": ["src/images/*"],
-      "@data/*": ["src/data/*"]
+      "@data/*": ["src/data/*"],
+      "@/*": ["./src/*"]
     }
   },
   "include": [

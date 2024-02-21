@@ -4,6 +4,12 @@ import type { HeadFC } from "gatsby";
 import * as React from "react";
 
 import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import {
   Accordion,
   AccordionButton,
   AccordionIcon,
@@ -17,10 +23,13 @@ import { RDFormComponent } from "@components/RDFormComponent";
 import { courses } from "@data/courses";
 import {
   ChevronRightIcon,
+  InformationCircleIcon,
   QuestionMarkCircleIcon,
 } from "@heroicons/react/24/solid";
 import useWindowSize from "@hooks/useWindowSize";
 import { StaticImage } from "gatsby-plugin-image";
+import { MdQuestionMark } from "react-icons/md";
+import { Text } from "rizzui";
 import "./styles.css";
 
 type PageContext = {
@@ -42,6 +51,20 @@ type PageContext = {
 //     </div>
 //   );
 // };
+
+function CustomContent({ education }: { education: string }) {
+  return (
+    <div className="text-start bg-white max-w-96">
+      <div className="flex items-center gap-2 text-base mb-1.5">
+        <InformationCircleIcon className="w-4 h-4" color="black" />
+        <Text fontWeight="medium" className="text-black">
+          Informações sobre a coordenação
+        </Text>
+      </div>
+      <Text className="text-sm text-gray-600 ">{education}</Text>
+    </div>
+  );
+}
 
 const CoursePage = ({ pageContext }: PageContext) => {
   const { course } = pageContext;
@@ -228,16 +251,30 @@ const CoursePage = ({ pageContext }: PageContext) => {
                       <span className="text-[1rem] text-neutral-500">
                         Cordenação geral
                       </span>
-                      <div className="flex flex-row gap-x-5">
-                        {course?.coordinator?.map((name, index) => (
-                          <span
-                            className="font-bold text-[1rem] text-neutral-800"
-                            key={index}
-                          >
-                            {name}
-                          </span>
-                        ))}
-                      </div>
+                      <TooltipProvider delayDuration={0}>
+                        <div className="flex flex-row gap-2 flex-wrap">
+                          {course?.coordinator?.map(
+                            ({ name, education }, index) => (
+                              <div className="flex gap-3">
+                                <span
+                                  className="font-bold text-[1rem] text-neutral-800"
+                                  key={index}
+                                >
+                                  {name}
+                                </span>
+                                <Tooltip>
+                                  <TooltipTrigger className="border rounded-full w-6 h-6 flex items-center justify-center">
+                                    <MdQuestionMark className="w-4 h-4" />
+                                  </TooltipTrigger>
+                                  <TooltipContent className="bg-white p-3 border border-gray-400">
+                                    <CustomContent education={education} />
+                                  </TooltipContent>
+                                </Tooltip>
+                              </div>
+                            )
+                          )}
+                        </div>
+                      </TooltipProvider>
                     </div>
 
                     <div className="border-2 p-5 rounded-xl">
